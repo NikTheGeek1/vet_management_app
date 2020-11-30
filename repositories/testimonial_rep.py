@@ -1,6 +1,6 @@
 from db.run_sql import run_sql
 from models.testimonial import Testimonial
-
+from repositories.owner_rep import OwnerRep
 
 class TestimonialRep:
     def __init__(self):
@@ -8,7 +8,7 @@ class TestimonialRep:
 
     def save(self, testimonial):
         sql = f"INSERT INTO {self.table} " + "(testimonial, owner_id) VALUES (%s, %s) RETURNING id"
-        values = [testimonial.testimonial, testimonial.owner_id]
+        values = [testimonial.testimonial, testimonial.owner.id]
         results = run_sql(sql, values)
         testimonial.id = results[0]["id"]
         return testimonial
@@ -19,9 +19,10 @@ class TestimonialRep:
         results = run_sql(sql)
 
         for row in results:
+            owner = OwnerRep().select(row["owner_id"])
             testimonial = Testimonial(
                 row["testimonial"],
-                row["owner_id"],
+                owner,
                 row["id"],
             )
             testimonials.append(testimonial)
@@ -34,9 +35,10 @@ class TestimonialRep:
         result = run_sql(sql, values)[0]
 
         if result is not None:
+            owner = OwnerRep().select(result["owner_id"])
             testimonial = Testimonial(
                 result["testimonial"],
-                result["owner_id"],
+                owner,
                 result["id"],
             )
         return testimonial

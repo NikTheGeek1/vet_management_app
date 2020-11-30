@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block base %}
+<section class="section-feedbacks">
+    <header class="header-feedbacks">
+        <nav class="navigation-feedbacks">
+            <ul class="navigation-list-feedbacks">
+                <li class="navigation-item-feedbacks feedbacks-selected-page"><a href="">All feedbacks</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="feedbacks-feedbacks-div">
+        {% for feedback in feedbacks %}
+            <div class="feedback-feedbacks-div">
+                <h3 class="heading-tertiary"><a href="/owners/{{feedback.owner.id}}/edit">{{feedback.owner.first_name}} {{feedback.owner.last_name}}</a></h3>
+                <hr>
+                <p class="paragraph" style="margin-bottom: 0;">Overal: {{feedback.get_average}}</p>
+                <p>Quality of service: {{ feedback.qos }}</p>
+                <p>Friendly staff: {{ feedback.fs }}</p>
+                <p>Clean facilities: {{ feedback.cf }}</p>
+                <p>Would you recommend: {{ feedback.recommend }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

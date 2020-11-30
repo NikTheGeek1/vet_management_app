@@ -70,7 +70,7 @@ evi_pet3 = Pet('Pirps', dt.date(2020, 2, 3), False, 'cat', evi_obj.id, melissa_o
 PetRep().save(evi_pet3)
 
 
-feedback1 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj.id)
+feedback1 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj)
 FeedbackRep().save(feedback1)
 
 pdb.set_trace()

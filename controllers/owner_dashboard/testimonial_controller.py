@@ -17,8 +17,9 @@ def testimonial_GET(id):
 
 @owners_testimonial_blueprint.route('/owners/<id>/add-testimonial', methods=['POST'])
 def testimonial_POST(id):
+    owner = OwnerRep().select(id)
     testimonial = request.form.get('testimonial')
-    testimonial = Testimonial(testimonial, id)
+    testimonial = Testimonial(testimonial, owner)
     TestimonialRep().save(testimonial)
     return redirect('/owners/'+id+'/testimonial')
 

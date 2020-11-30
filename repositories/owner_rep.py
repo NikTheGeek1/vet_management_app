@@ -94,8 +94,8 @@ class OwnerRep:
         sql = "SELECT * FROM feedbacks WHERE owner_id = %s"
         values = [owner_id]
         results = run_sql(sql, values)
-        print(results)
         for row in results:
+            owner = self.select(owner_id)
             feedback = Feedback(
                 row['qos'],
                 row['fs'],
@@ -103,7 +103,7 @@ class OwnerRep:
                 row['recommend'],
                 row['suggestions'],
                 row['other_comment'],
-                row['owner_id'],
+                owner,
                 row['id']
             )
             feedbacks.append(feedback)
@@ -113,12 +113,12 @@ class OwnerRep:
         testimonial = None
         sql = "SELECT * FROM testimonials WHERE owner_id = %s"
         values = [owner_id]
-        print(run_sql(sql, values))
         result = run_sql(sql, values)
 
         if len(result) != 0:
+            owner = self.select(owner_id)
             result = result[0]
-            testimonial = Testimonial(result['testimonial'], result['owner_id'], result['id'])
+            testimonial = Testimonial(result['testimonial'], owner, result['id'])
 
         return testimonial
 

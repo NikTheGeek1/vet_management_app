@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from repositories.testimonial_rep import TestimonialRep
+
 from controllers.owner_controller import owners_blueprint
 from controllers.owner_dashboard.pets_controller import owners_pets_blueprint
 from controllers.owner_dashboard.feedbacks_controller import owners_feedbacks_blueprint
@@ -7,6 +9,8 @@ from controllers.owner_dashboard.testimonial_controller import owners_testimonia
 from controllers.vet_controller import vets_blueprint
 from controllers.vet_dashboard.details_controller import vets_details_blueprint
 from controllers.vet_dashboard.pets_controller import vets_pets_blueprint
+
+from controllers.feedback_controller import feedbacks_blueprint
 
 app = Flask(__name__)
 
@@ -19,9 +23,12 @@ app.register_blueprint(vets_blueprint)
 app.register_blueprint(vets_details_blueprint)
 app.register_blueprint(vets_pets_blueprint)
 
+app.register_blueprint(feedbacks_blueprint)
+
 @app.route('/')
 def index():
-    return render_template('index.html', title = 'Welcome')
+    testimonials = TestimonialRep().select_all()
+    return render_template('index.html', title = 'Welcome', testimonials = testimonials)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -23,6 +23,7 @@ def feedback_POST(id):
     recommend = request.form.get('recommend')
     suggestions = request.form.get('suggestions')
     other_comment = request.form.get('other_comment')
-    feedback = Feedback(qos, fs, cf, recommend, suggestions, other_comment, id)
+    owner = OwnerRep().select(id)
+    feedback = Feedback(qos, fs, cf, recommend, suggestions, other_comment, owner)
     FeedbackRep().save(feedback)
     return redirect('/owners/'+id+'/feedbacks')

@@ -36,7 +36,7 @@
     </section>
 
     <section class="section-vets">
-        <div class="vet-box">
+        <div class="vet-box-index">
             <figure class="vet-figure-box margin-top-small">
                 <div class="vet-img-box">
                     <img src="/static/images/vet-1.jpg" alt="vet-1" class="vet-profile-img">
@@ -51,7 +51,7 @@
             </p>
         </div>
 
-        <div class="vet-box">
+        <div class="vet-box-index">
             <figure class="vet-figure-box margin-top-small">
                 <div class="vet-img-box">
                     <img src="/static/images/vet-2.jpeg" alt="vet-2" class="vet-profile-img">
@@ -66,7 +66,7 @@
             </p>
         </div>
 
-        <div class="vet-box">
+        <div class="vet-box-index">
             <figure class="vet-figure-box margin-top-small">
                 <div class="vet-img-box">
                     <img src="/static/images/vet-3.jpg" alt="vet-3" class="vet-profile-img">
@@ -80,6 +80,8 @@
                 animals that are carefully bred, raised, and maintained under the supervision of veterinarians.
             </p>
         </div>
+        <a class="btn-text btn-white" href="/vets">See all vets -></a>
+
     </section>
 
     <section class="section-pets">
@@ -117,12 +119,15 @@
     </section>
     <section class="section-testimonials">
         <div class="testimonials-scrollable">
+            {% for testimonial in testimonials %}
             <div class="testimonial-box">
-                <h3 class="heading-tertiary">Name</h3>
-                <p class="paragraph">I am glad I brought
-                    my pet here, good times.
-                </p>
+                <hgroup>
+                    <h3 class="heading-tertiary"><a style="color: #333" href="/owners/{{testimonial.owner.id}}/testimonial">{{testimonial.owner.first_name}} {{testimonial.owner.last_name}}</a></h3>
+                    <hr>
+                    <p class="paragraph">{{testimonial.testimonial}}</p>
+                </hgroup>
             </div>
+            {% endfor %}
         </div>
     </section>
 </main>
