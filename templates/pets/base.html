@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block base %}
+<section class="section-pet">
+    <header class="header-pet">
+        <nav class="navigation-pet">
+            <ul class="navigation-list-pet">
+                {% if selected_page == 'info' %}
+                <li class="navigation-item-pet"><a class="pet-selected-page" href="/pets">Info</a></li>
+                {% else %}
+                <li class="navigation-item-pet"><a href="/pets">Info</a></li>
+                {% endif %}
+                {% if selected_page == 'add_pet' %}
+                <li class="navigation-item-pet"><a class="pet-selected-page" href="/pets/add">Add pet</a></li>
+                {% elif selected_page == 'update_pet' %}
+                <li class="navigation-item-pet"><a class="pet-selected-page" href="#">{{pet.first_name}}'s Dashboard</a></li>
+                {% else %}
+                <li class="navigation-item-pet"><a href="/pets/add">Add pet</a></li>
+                {% endif %}
+                {% if selected_page == 'see_pets' %}
+                <li class="navigation-item-pet"><a class="pet-selected-page" href="/pets/all">See pets</a></li>
+                {% else %}
+                <li class="navigation-item-pet"><a href="/pets/all">See pets</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block pets %}
+    {% endblock %}
+</section>
+
+{% endblock %}

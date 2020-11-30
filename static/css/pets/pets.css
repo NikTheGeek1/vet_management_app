@@ -1,0 +1,56 @@
+.section-pet {
+    display: grid;
+    grid-template-rows: 20rem 5rem minmax(80vh, 1fr);
+    grid-template-areas: "pet-nav" "pet-dashboard" "pet-main";
+}
+
+.dashboard-nav-pets-off {
+    grid-area: pet-dashboard;
+    background-color:  #f7f7f7;
+}
+
+.header-pet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #55c57a;
+    grid-area: pet-nav;
+}
+
+.navigation-pet {
+    width: 100%;
+}
+
+.navigation-list-pet {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    justify-items: center;
+}
+
+.navigation-item-pet {
+    text-decoration: none;
+}
+
+.navigation-item-pet > a {
+    text-decoration: none;
+    font-size: 3.6rem;
+    color: white;
+}
+
+.pet-selected-page {
+    text-decoration: underline !important;
+}
+
+.pets-info-div {
+    grid-area: pet-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap: 4rem;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+}
+
+.pets-par-info {
+}
