@@ -1,0 +1,36 @@
+{% extends "vets/base.html" %}
+
+{% block vets %}
+<div class="dashboard-nav-off-vets">
+    
+</div>
+<div class="vets-see-div">
+    {% for vet in vets %}
+    <div class="vet-box">
+        <h3 class="heading-tertiary">{{vet.last_name}}<span style="font-size: 1rem"> {{vet.first_name}}</span></h3>
+        <hr>
+        <hr>
+        <div class="edit-delete-div">
+            <div class="edit-box">
+                <form action="/vets/{{vet.id}}/edit">
+                    <input type="submit" class="vet-edit-input" id="edit-vet{{vet.id}}">
+                    <label for="edit-vet{{vet.id}}">
+                        <span class="vet-edit-icon"></span>
+                    </label>
+                </form>
+            </div>
+            <div class="delete-box">
+                <form action="/vets/{{vet.id}}/delete">
+                    <input type="submit" class="vet-delete-input" id="delete-vet{{vet.id}}">
+                    <label for="delete-vet{{vet.id}}">
+                        <span class="vet-delete-icon"></span>
+                    </label>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

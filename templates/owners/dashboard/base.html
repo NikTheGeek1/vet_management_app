@@ -3,9 +3,9 @@
 <div class="dashboard-nav">
     <ul class="dashboard-nav-list">
         {% if selected_dash_item == 'details' %}
-        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="">{{owner.first_name}}'s details</a></li>
+        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="/owners/{{owner.id}}/edit">{{owner.first_name}}'s details</a></li>
         {% else %}
-        <li class="dashboard-nav-item"><a href="">{{owner.first_name}}'s details</a></li>
+        <li class="dashboard-nav-item"><a href="/owners/{{owner.id}}/edit">{{owner.first_name}}'s details</a></li>
         {% endif %}
 
         {% if selected_dash_item == 'pets' %}
@@ -15,15 +15,15 @@
         {% endif %}
 
         {% if selected_dash_item == 'feedbacks' %}
-        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="">{{owner.first_name}}'s feedbacks</a></li>
+        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="/owners/{{owner.id}}/feedbacks">{{owner.first_name}}'s feedbacks</a></li>
         {% else %}
-        <li class="dashboard-nav-item"><a href="">{{owner.first_name}}'s feedbacks</a></li>
+        <li class="dashboard-nav-item"><a href="/owners/{{owner.id}}/feedbacks">{{owner.first_name}}'s feedbacks</a></li>
         {% endif %}
 
         {% if selected_dash_item == 'pets' %}
-        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="">{{owner.first_name}}'s testimonial</a></li>
+        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="/owners/{{owner.id}}/testimonial">{{owner.first_name}}'s testimonial</a></li>
         {% else %}
-        <li class="dashboard-nav-item"><a href="">{{owner.first_name}}'s testimonial</a></li>
+        <li class="dashboard-nav-item"><a href="/owners/{{owner.id}}/testimonial">{{owner.first_name}}'s testimonial</a></li>
         {% endif %}
     </ul>
 </div>

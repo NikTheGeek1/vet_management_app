@@ -1,0 +1,81 @@
+.vets-see-div {
+    grid-area: vet-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    column-gap: 5rem;
+    row-gap: 4rem;
+    background-size: cover;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+    align-items: start;
+}
+
+.vet-box {
+    width: 15rem;
+}
+
+.vet-details-paragraph {
+    margin: .3rem !important;
+    position: relative;
+}
+
+
+
+
+.edit-delete-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.vet-edit-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.vet-edit-input {
+    cursor: pointer;
+    height: 3rem;
+    opacity: 0;
+}
+
+
+.vet-edit-icon::after {
+    content: "";
+    background-image: url(/static/images/edit-icon.png);
+    background-size: 3rem 3rem;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: -1rem;
+    left: -5rem;
+}
+
+
+
+
+.vet-delete-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.vet-delete-input {
+    cursor: pointer;
+    height: 3rem;
+    opacity: 0;
+}
+
+
+.vet-delete-icon::after {
+    content: "";
+    background-image: url(/static/images/delete-icon.png);
+    background-size: 3rem 3rem;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: -1rem;
+    left: -3rem;
+}

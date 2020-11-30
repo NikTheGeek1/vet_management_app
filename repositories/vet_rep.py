@@ -13,9 +13,12 @@ class VetRep:
         vet.id = results[0]["id"]
         return vet
 
-    def select_all(self):
+    def select_all(self, sort = False):
         vets = []
-        sql = f"SELECT * FROM {self.table}"
+        if sort:
+            sql = f"SELECT * FROM {self.table} ORDER BY last_name ASC"
+        else:
+            sql = f"SELECT * FROM {self.table}"
         results = run_sql(sql)
 
         for row in results:
@@ -65,11 +68,16 @@ class VetRep:
                 row['animal_type'], 
                 row['owner_id'], 
                 row['vet_id'], 
-                row['img'], 
+                row['img'],
+                row['img_type'], 
                 row['id']
             )
             pets.append(pet)
         return pets
 
+    def update(self, first_name, last_name, id):
+        sql = f"UPDATE {self.table} " + "SET (first_name, last_name) = (%s, %s) WHERE id = %s RETURNING *"
+        values = [first_name, last_name, id]
+        run_sql(sql, values)
     
     

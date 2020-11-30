@@ -1,0 +1,27 @@
+{% extends "vets/dashboard/base.html" %}
+
+{% block vets_dashboard %}
+
+<div class="vets-edit-div">
+    <div class="form-box">
+        <h2 class="heading-secondary">Update Vet Details</h2>
+        <form class="form vets-form" method="POST" action="/vets/{{vet.id}}/edit">
+            <div class="form-group">
+                <input value="{{vet.first_name}}" class="form-input"
+                    placeholder="First name" type="text" name="first_name" id="first_name" required>
+                <label class="form-label" for="first_name">First name</label>
+            </div>
+            <div class="form-group">
+                <input value="{{vet.last_name}}" class="form-input"
+                    placeholder="Last name" type="text" name="last_name" id="last_name" required>
+                <label class="form-label" for="last_name">Last name</label>
+            </div> 
+            <div class="form-group">
+                <button class="btn btn-green" type="submit">Update Vet</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

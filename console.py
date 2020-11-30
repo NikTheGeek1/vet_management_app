@@ -69,4 +69,8 @@ evi_pet3_img = read_file('pet-3.txt')
 evi_pet3 = Pet('Pirps', dt.date(2020, 2, 3), False, 'cat', evi_obj.id, melissa_obj.id, evi_pet3_img[0], evi_pet3_img[1])
 PetRep().save(evi_pet3)
 
+
+feedback1 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj.id)
+FeedbackRep().save(feedback1)
+
 pdb.set_trace()

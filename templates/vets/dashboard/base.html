@@ -1,0 +1,23 @@
+{% extends "vets/base.html" %}
+{% block vets %}
+<div class="dashboard-nav-vets">
+    <ul class="dashboard-nav-list">
+        {% if selected_dash_item == 'details' %}
+        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="/vets/{{vet.id}}/edit">{{vet.first_name}}'s details</a></li>
+        {% else %}
+        <li class="dashboard-nav-item"><a href="/vets/{{vet.id}}/edit">{{vet.first_name}}'s details</a></li>
+        {% endif %}
+
+        {% if selected_dash_item == 'pets' %}
+        <li class="dashboard-nav-item dashboard-nav-item-selected"><a href="/vets/{{vet.id}}/pets">{{vet.first_name}}'s pets</a></li>
+        {% else %}
+        <li class="dashboard-nav-item"><a href="/vets/{{vet.id}}/pets">{{vet.first_name}}'s pets</a></li>
+        {% endif %}
+
+    </ul>
+</div>
+{% block vets_dashboard %}
+
+{% endblock %}
+
+{% endblock %}

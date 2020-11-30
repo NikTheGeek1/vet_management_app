@@ -73,10 +73,19 @@
     color: white;
 }
 
+.btn-red {
+    background-color:  #c57e55;
+    color: white;
+}
 
 .btn-green::after {
     background-color:  #55c57a;
 }
+
+.btn-red::after {
+    background-color: #c57e55;
+}
+
 
 .btn-animated {
     animation: moveInBottom .5s ease-out .75s;

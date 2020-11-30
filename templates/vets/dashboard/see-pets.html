@@ -1,0 +1,62 @@
+{% extends "vets/dashboard/base.html" %}
+
+{% block vets_dashboard %}
+{% if pets|length %}
+<div class="vet-pets-list">
+    {% for pet in pets %}
+    <div class="vets-pet-box">
+        {% if pet.image64 %}
+        <img src='data:{{pet.image_type}};base64, {{pet.image64}}' alt="pet-{{pet.id}}" class="vets-pet-profile-img">
+        {% else %}
+        <img src="/static/images/cat_paw_logo_white.png" alt="pet-{{pet.id}}" class="vets-pet-profile-img">
+        {% endif %}
+        <div>
+            <h3 class="heading-tertiary">{{pet.name}}</h3>
+            <hr>
+            <p class="paragraph vet-pet-details">Type: {{pet.type}}</p>
+            <p class="paragraph vet-pet-details">Dob: {{pet.dob}}</p>
+            <p class="paragraph vet-pet-details">Years old: {{pet.yo}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="vets-pet-box">
+        <div style="text-align: center;">
+            {% if all_pets|length %}
+            <h3 class="heading-tertiary">Select a pet</h3>
+
+            <form class="form vets-form" method="POST" action="/vets/{{vet.id}}/select-pet">
+                <select name="pet" id="pet-select">
+                    {% for pet in all_pets %}
+                    <option value="{{pet.id}}">{{pet.name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="form-group margin-top-large">
+                    <button class="btn btn-green" type="submit">Select Pet</button>
+                </div>
+            </form>
+            {% else %}
+            <h3 class="heading-tertiary">No more pets to select</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="no-pets-div">
+    <div style="text-align: center;">
+        <h2 class="heading-secondary">{{vet.first_name}} has no pets -- select a pet</h2>
+
+        <form class="form vets-form" method="POST" action="/vets/{{vet.id}}/select-pet">
+            <select name="pet" id="pet-select">
+                {% for pet in all_pets %}
+                <option value="{{pet.id}}">{{pet.name}}</option>
+                {% endfor %}
+            </select>
+            <div class="form-group margin-top-large">
+                <button class="btn btn-green" type="submit">Select Pet</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

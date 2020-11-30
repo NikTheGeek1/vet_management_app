@@ -98,7 +98,7 @@
 {% else %}
 <div class="no-pets-div">
     <div>
-        <h2 class="heading-secondary">{{owner.first_name}} has no pets -- <a href="#">add a pet.</a></h2>
+        <h2 class="heading-secondary">{{owner.first_name}} has no pets -- <a href="/owners/{{owner.id}}/add-pet">add a pet.</a></h2>
     </div>
 </div>
 {% endif %}

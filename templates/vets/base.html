@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block base %}
+<section class="section-vet">
+    <header class="header-vet">
+        <nav class="navigation-vet">
+            <ul class="navigation-list-vet">
+                {% if selected_page == 'info' %}
+                <li class="navigation-item-vet"><a class="vet-selected-page" href="/vets">Info</a></li>
+                {% else %}
+                <li class="navigation-item-vet"><a href="/vets">Info</a></li>
+                {% endif %}
+                {% if selected_page == 'add_vet' %}
+                <li class="navigation-item-vet"><a class="vet-selected-page" href="/vets/add">Add vet</a></li>
+                {% elif selected_page == 'update_vet' %}
+                <li class="navigation-item-vet"><a class="vet-selected-page" href="#">{{vet.first_name}}'s Dashboard</a></li>
+                {% else %}
+                <li class="navigation-item-vet"><a href="/vets/add">Add Vet</a></li>
+                {% endif %}
+                {% if selected_page == 'see_vets' %}
+                <li class="navigation-item-vet"><a class="vet-selected-page" href="/vets/all">See Vets</a></li>
+                {% else %}
+                <li class="navigation-item-vet"><a href="/vets/all">See Vets</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block vets %}
+    {% endblock %}
+</section>
+
+{% endblock %}

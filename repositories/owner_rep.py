@@ -39,9 +39,10 @@ class OwnerRep:
         owner = None
         sql = f"SELECT * FROM {self.table} " + "WHERE id = %s"
         values = [id]
-        result = run_sql(sql, values)[0]
+        result = run_sql(sql, values)
 
-        if result is not None:
+        if len(result) != 0:
+            result = result[0]
             owner = Owner(
                 result["first_name"],
                 result["last_name"],
@@ -93,7 +94,7 @@ class OwnerRep:
         sql = "SELECT * FROM feedbacks WHERE owner_id = %s"
         values = [owner_id]
         results = run_sql(sql, values)
-
+        print(results)
         for row in results:
             feedback = Feedback(
                 row['qos'],
@@ -112,9 +113,11 @@ class OwnerRep:
         testimonial = None
         sql = "SELECT * FROM testimonials WHERE owner_id = %s"
         values = [owner_id]
-        result = run_sql(sql, values)[0]
+        print(run_sql(sql, values))
+        result = run_sql(sql, values)
 
-        if result is not None:
+        if len(result) != 0:
+            result = result[0]
             testimonial = Testimonial(result['testimonial'], result['owner_id'], result['id'])
 
         return testimonial

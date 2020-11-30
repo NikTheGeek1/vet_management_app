@@ -1,0 +1,16 @@
+.no-testimonial-div {
+    grid-area: owners-main;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 10rem auto;
+    width: 60%;
+    display: grid;
+    column-gap: 1rem;
+    background-image: linear-gradient(rgba(126, 213, 111, .5),
+    rgba(40, 180, 133, .5)
+    );
+    grid-template-columns: 1fr;
+    box-shadow: 1rem 2rem 3rem 3rem rgba(40, 180, 133, .5);
+    grid-template-areas: "pet-img" "pet-form";
+    align-self: center;
+}

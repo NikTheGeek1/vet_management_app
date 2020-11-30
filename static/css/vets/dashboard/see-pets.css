@@ -1,5 +1,5 @@
 .no-pets-div {
-    grid-area: owners-main;
+    grid-area: vet-main;
     background-color: #f7f7f7;
     display: grid;
     justify-content: center;
@@ -10,11 +10,23 @@
     color: #55c57a;
 }
 
+.vet-pet-details {
+    margin-bottom: 0 !important;
+}
 
-.owners-pet-box{
+.vet-pets-list {
+    display: grid;
+    grid-area: vet-main;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+}
+
+.vets-pet-box{
     padding-left: 2rem;
     padding-right: 2rem;
     margin-top: 4rem;
+    width: 20rem;
+    height: 30rem;
     margin-left: 4rem;
     margin-bottom: 4rem;
     display: grid;
@@ -27,11 +39,10 @@
     grid-template-areas: "pet-img" "pet-form";
 }
 
-.owners-pet-profile-img {
+.vets-pet-profile-img {
     justify-self: center;
-    width: 40rem;
-    border-radius: 50%;
-    margin: 3rem;
+    width: 15rem;
+    margin-top: 1rem;
 }
 
 .upload-input {

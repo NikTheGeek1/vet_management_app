@@ -52,7 +52,7 @@ CREATE TABLE feedbacks (
     id SERIAL PRIMARY KEY,
     qos INT,
     fs INT,
-    cl INT,
+    cf INT,
     recommend INT,
     suggestions TEXT,
     other_comment TEXT,

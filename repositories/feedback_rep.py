@@ -7,8 +7,8 @@ class FeedbackRep:
         self.table = "feedbacks"
 
     def save(self, feedback):
-        sql = f"INSERT INTO {self.table} " + "(qos, fs, cl, recommend) VALUES (%s, %s, %s, %s) RETURNING id"
-        values = [feedback.qos, feedback.fs, feedback.cl, feedback.recommend]
+        sql = f"INSERT INTO {self.table} " + "(qos, fs, cf, recommend, suggestions, other_comment, owner_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
+        values = [feedback.qos, feedback.fs, feedback.cf, feedback.recommend, feedback.suggestions, feedback.other_comment, feedback.owner_id]
         results = run_sql(sql, values)
         feedback.id = results[0]["id"]
         return feedback
@@ -22,7 +22,7 @@ class FeedbackRep:
             feedback = Feedback(
                 row["qos"],
                 row["fs"],
-                row["cl"],
+                row["cf"],
                 row["recommend"],
                 row["suggestions"],
                 row["other_comment"],
@@ -42,7 +42,7 @@ class FeedbackRep:
             feedback = Feedback(
                 result["qos"],
                 result["fs"],
-                result["cl"],
+                result["cf"],
                 result["recommend"],
                 result["suggestions"],
                 result["other_comment"],

@@ -67,7 +67,7 @@ class PetRep:
     def update(self, pet):
         sql = f"UPDATE {self.table} " + "SET (pet_name, dob, yo, vet_id, img, img_type) = (%s, %s, %s, %s, %s, %s) WHERE id = %s RETURNING *"
         values = [pet.name, pet.dob, pet.yo, pet.vet_id, pet.image64, pet.image_type, pet.id]
-        results = run_sql(sql, values)
+        run_sql(sql, values)
 
     def get_treatments(self, pet_id):
         treatments = []

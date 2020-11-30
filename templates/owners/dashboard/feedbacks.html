@@ -1,0 +1,204 @@
+{% extends "owners/dashboard/base.html" %}
+
+{% block owners_dashboard %}
+{% if feedbacks|length %}
+{% for feedback in feedbacks %}
+<div class="owners-feedbacks-div">
+    <!-- dynamic form -->
+    <form class="form owners-form" method="POST" action="">
+
+        <div class="form-group">
+            <label class="form-label" for="qos">Quality of service</label>
+            <select name="qos" id="qos" required disabled style="cursor: not-allowed;">
+                {% for num in [1, 2, 3, 4, 5] %}
+                {% if num == feedback.qos %}
+                <option selected value="{{num}}">{{num}}</option>
+                {% else %}
+                <option value="{{num}}">{{num}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="fs">Friendly staff</label>
+            <select name="fs" id="fs" required disabled style="cursor: not-allowed;">
+                {% for num in [1, 2, 3, 4, 5] %}
+                {% if num == feedback.fs %}
+                <option selected value="{{num}}">{{num}}</option>
+                {% else %}
+                <option value="{{num}}">{{num}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="cf">Clean facilities</label>
+            <select name="cf" id="cf" required disabled style="cursor: not-allowed;">
+                {% for num in [1, 2, 3, 4, 5] %}
+                {% if num == feedback.cf %}
+                <option selected value="{{num}}">{{num}}</option>
+                {% else %}
+                <option value="{{num}}">{{num}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="Recommend">Would you recommend?</label>
+            <select name="recommend" id="recommend" required disabled style="cursor: not-allowed;">
+                {% for num in [1, 2, 3, 4, 5] %}
+                {% if num == feedback.recommend %}
+                <option selected value="{{num}}">{{num}}</option>
+                {% else %}
+                <option value="{{num}}">{{num}}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-input form-input-disabled" placeholder="Suggestions" type="text" name="suggestions"
+                id="suggestions" disabled> {{feedback.suggestions}}</textarea>
+            <label class="form-label" for="suggestions">Suggestions</label>
+        </div>
+        <div class="form-group">
+            <textarea class="form-input form-input-disabled" placeholder="Other comment" type="text"
+                name="other_comment" id="other_comment" disabled>{{feedback.other_comment}}</textarea>
+            <label class="form-label" for="other_comment">Other comments</label>
+        </div>
+
+    </form>
+</div>
+
+{% endfor %}
+<div class="no-feedbacks-div">
+
+    <!-- fixed form -->
+    <form class="form owners-form" method="POST" action="/owners/{{owner.id}}/add-feedback">
+
+        <div class="form-group">
+            <label class="form-label" for="qos">Quality of service</label>
+            <select name="qos" id="qos" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="fs">Friendly staff</label>
+            <select name="fs" id="fs" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="cf">Clean facilities</label>
+            <select name="cf" id="cf" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="recommend">Would you recommend?</label>
+            <select name="recommend" id="recommend" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-input" placeholder="Suggestions" type="text" name="suggestions"
+                id="suggestions"></textarea>
+            <label class="form-label" for="suggestions">Suggestions</label>
+        </div>
+        <div class="form-group">
+            <textarea class="form-input" placeholder="Other comment" type="text" name="other_comment"
+                id="other_comment"></textarea>
+            <label class="form-label" for="other_comment">Other comments</label>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-green" type="submit">Add feedback</button>
+        </div>
+    </form>
+</div>
+
+{% else %}
+<div class="no-feedbacks-div">
+    <!-- fixed form -->
+    <form class="form owners-form" method="POST" action="/owners/{{owner.id}}/add-feedback">
+
+        <div class="form-group">
+            <label class="form-label" for="qos">Quality of service</label>
+            <select name="qos" id="qos" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="fs">Friendly staff</label>
+            <select name="fs" id="fs" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="cf">Clean facilities</label>
+            <select name="cf" id="cf" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="recommend">Would you recommend?</label>
+            <select name="recommend" id="recommend" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-input" placeholder="Suggestions" type="text" name="suggestions"
+                id="suggestions"></textarea>
+            <label class="form-label" for="suggestions">Suggestions</label>
+        </div>
+        <div class="form-group">
+            <textarea class="form-input" placeholder="Other comment" type="text" name="other_comment"
+                id="other_comment"></textarea>
+            <label class="form-label" for="other_comment">Other comments</label>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-green" type="submit">Add feedback</button>
+        </div>
+    </form>
+</div>
+
+{% endif %}
+
+{% endblock %}

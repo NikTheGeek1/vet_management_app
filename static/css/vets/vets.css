@@ -1,0 +1,56 @@
+.section-vet {
+    display: grid;
+    grid-template-rows: 20rem 5rem minmax(80vh, 1fr);
+    grid-template-areas: "vet-nav" "vet-dashboard" "vet-main";
+}
+
+.dashboard-nav-vets-off {
+    grid-area: vet-dashboard;
+    background-color:  #f7f7f7;
+}
+
+.header-vet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #55c57a;
+    grid-area: vet-nav;
+}
+
+.navigation-vet {
+    width: 100%;
+}
+
+.navigation-list-vet {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    justify-items: center;
+}
+
+.navigation-item-vet {
+    text-decoration: none;
+}
+
+.navigation-item-vet > a {
+    text-decoration: none;
+    font-size: 3.6rem;
+    color: white;
+}
+
+.vet-selected-page {
+    text-decoration: underline !important;
+}
+
+.vets-info-div {
+    grid-area: vet-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap: 4rem;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+}
+
+.vets-par-info {
+}
