@@ -1,0 +1,27 @@
+.section-testimonials {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 1),
+        rgba(40, 180, 133, 1)
+        );
+        display: flex;
+    }
+    
+    
+    .testimonials-scrollable {
+        display: flex;
+        margin: auto;
+        overflow-x: scroll;
+        width: 80rem;
+    }
+    
+    .testimonial-box {
+        margin: 3rem;
+        background-color: white;
+        min-width: 20rem;
+        min-height: 20rem;
+        text-align: center;
+        box-shadow: 2rem 1rem 3rem rgba(0, 0, 0, .4);
+    }
+
+ 

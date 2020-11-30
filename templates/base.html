@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vet | {{title}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/images/cat_paw_logo_white.png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpers/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpers/typography.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpers/spaces.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpers/form.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/treatments.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vets.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pets.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/testimonials.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owners/owners.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owners/dashboard/edit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owners/add-owner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owners/see-all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owners/add-pet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owners/dashboard/see-pets.css') }}">
+
+</head>
+<body>
+    <div class="navigation-div">
+        <input type="checkbox" class="navigation-checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="navigation-button">
+            <span class="navigation-icon">&nbsp;</span>
+        </label>
+
+        <div class="navigation-background"></div>
+        <nav class="navigation-nav">
+            <ul class="navigation-list">
+                <li class="navigation-item"><a href="/" class="navigation-link"><span>01</span>Home Page</a></li>
+                <li class="navigation-item"><a href="/owners" class="navigation-link"><span>02</span>Owners</a></li>
+                <li class="navigation-item"><a href="" class="navigation-link"><span>03</span>Vets</a></li>
+                <li class="navigation-item"><a href="" class="navigation-link"><span>04</span>Feedbacks</a></li>
+                <li class="navigation-item"><a href="" class="navigation-link"><span>05</span>Treatments</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% block base %}
+    {% endblock %}
+    <footer class="footer">
+        <div class="footer-links">
+            <hr>
+            <ul class="footer-list">
+                <li class="footer-list-item"><a href="" class="footer-link">Home</a></li>
+                <li class="footer-list-item"><a href="" class="footer-link">Home</a></li>
+                <li class="footer-list-item"><a href="" class="footer-link">Home</a></li>
+                <li class="footer-list-item"><a href="" class="footer-link">Home</a></li>
+                <li class="footer-list-item"><a href="" class="footer-link">Home</a></li>
+            </ul>
+        </div>
+        <img src="/static/images/cat_paw_logo_white.png" alt="logo" class="footer-logo">
+        <div class="footer-rights">
+            <hr>
+            <span>&copy; CodeClan | Pet Management</span>
+        </div>
+    </footer>
+</body>
+</html>

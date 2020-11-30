@@ -1,0 +1,71 @@
+.section-vets {
+    background-image: linear-gradient(
+        rgba(126, 213, 111, .8),
+        rgba(40, 180, 133, .8)
+        ) ,url(/static/images/vet-background.jpg);
+    grid-area: vets;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5rem;
+}
+
+
+.vet-box {
+    width: 25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    margin-bottom: 4rem;
+    display: grid;
+    background-image: linear-gradient(rgba(255,255,255, .5), rgba(255,255,255, .5));
+    grid-template-rows: 15rem min-content 1fr;
+    box-shadow: 1rem 2rem 3rem 3rem rgba(0, 0, 0, .4);
+}
+
+.vet-img-box {
+    border-radius: 50%;
+    overflow: hidden;
+    grid-row: 1/1;
+    grid-column: 1/1;
+}
+
+.vet-profile-img {
+    width: 15rem;
+    transform: scale(1.2);
+    transition: all .2s;
+}
+
+.vet-box:hover > figure > div > img {
+    transform: scale(1);
+    filter: blur(10px);
+}
+
+.vet-box:hover > figure > figcaption {
+    transform: scale(2);
+    opacity: 1;
+    color: white;
+}
+
+.vet-figure-box {
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.vet-name {
+    grid-row: 1/1;
+    grid-column: 1/1;
+    justify-self: center;
+    align-self: center;
+    z-index: 1;
+    transition: all .2s;
+    opacity: 0;
+}
+
+.vet-heading {
+    justify-self: center;
+}

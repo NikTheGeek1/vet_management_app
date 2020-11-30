@@ -1,0 +1,43 @@
+{% extends "owners/base.html" %}
+
+{% block owners %}
+<div class="dashboard-nav-off">
+    
+</div>
+<div class="owners-see-div">
+    {% for owner in owners %}
+    <div class="owner-box">
+        <h3 class="heading-tertiary">{{owner.last_name}}<span style="font-size: 1rem"> {{owner.first_name}}</span></h3>
+        <hr>
+        <p class="paragraph owner-details-paragraph owner-details-email"> {{owner.email}}</p>
+        <p class="paragraph owner-details-paragraph owner-details-phone"> {{owner.phone}}</p>
+        {% if owner.registered %}
+        <img class="owner-registered-icon" src="/static/images/registered-icon.jpg" alt="registered">
+        {% else %}
+        <img class="owner-registered-icon" src="/static/images/unregistered-icon.png" alt="unregistered">
+        {% endif %}
+        <hr>
+        <div class="edit-delete-div">
+            <div class="edit-box">
+                <form action="/owners/{{owner.id}}/edit">
+                    <input type="submit" class="owner-edit-input" id="edit-owner{{owner.id}}">
+                    <label for="edit-owner{{owner.id}}">
+                        <span class="owner-edit-icon"></span>
+                    </label>
+                </form>
+            </div>
+            <div class="delete-box">
+                <form action="/owners/{{owner.id}}/delete">
+                    <input type="submit" class="owner-delete-input" id="delete-owner{{owner.id}}">
+                    <label for="delete-owner{{owner.id}}">
+                        <span class="owner-delete-icon"></span>
+                    </label>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

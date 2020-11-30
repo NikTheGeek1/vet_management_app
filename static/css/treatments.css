@@ -1,0 +1,63 @@
+.section-treatments {
+    margin-top: -15rem;
+    background-color: #f7f7f7f7;
+    grid-area: treatments;
+
+    display: grid;
+    grid-template-rows: 20rem 1fr;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas: 
+    "treatments-heading treatments-heading"
+    "treatments-overview treatments-images"
+}
+
+.treatments-heading {
+    grid-area: treatments-heading;
+    justify-self: center;
+    align-self: end;
+}
+
+.treatments-overview-box {
+    grid-area: treatments-overview;
+    align-self: center;
+}
+
+
+.treatments-images-box {
+    grid-area: treatments-images;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    align-self: end;
+}
+
+.treatments-img-1, 
+.treatments-img-2, 
+.treatments-img-3 {
+    width: 22rem;
+    transition: all .2s;
+}
+
+.treatments-img-1 {
+    grid-row: 2/6;
+    grid-column: 3/7;
+    z-index: 1;
+}
+
+.treatments-img-2 {
+    grid-row: 1/5;
+    grid-column: 6/9;
+}
+.treatments-img-3 {
+    grid-row: 3/7;
+    grid-column: 5/9;
+}
+
+.treatments-img-1:hover, 
+.treatments-img-2:hover, 
+.treatments-img-3:hover {
+    z-index: 10;
+    transform: scale(1.1);
+}
+

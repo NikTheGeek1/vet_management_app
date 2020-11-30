@@ -24,13 +24,14 @@ CREATE TABLE vets (
 
 CREATE TABLE pets (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    pet_name VARCHAR(255),
     dob DATE,
     yo NUMERIC,
     animal_type VARCHAR(255),
     owner_id INT REFERENCES owners(id),
     vet_id INT REFERENCES vets(id),
-    img BIT
+    img VARCHAR,
+    img_type VARCHAR(255)
 );
 
 CREATE TABLE treatments (
@@ -41,7 +42,7 @@ CREATE TABLE treatments (
 
 CREATE TABLE visits (
     id SERIAL PRIMARY KEY,
-    pet_id INT REFERENCES pets(id)
+    pet_id INT REFERENCES pets(id),
     check_in DATE,
     check_out DATE,
     description TEXT

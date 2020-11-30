@@ -1,0 +1,65 @@
+{% extends "owners/dashboard/base.html" %}
+
+{% block owners_dashboard %}
+
+<div class="owners-edit-div">
+    <div class="form-box">
+        <h2 class="heading-secondary">Update Owner Details</h2>
+        <form class="form owners-form" method="POST" action="/owners/{{owner.id}}/edit">
+            <div class="form-group">
+                <input disabled value="{{owner.first_name}}" class="form-input form-input-disabled"
+                    placeholder="First name" type="text" name="first_name" id="first_name" required>
+                <label class="form-label" for="first_name">First name</label>
+            </div>
+            <div class="form-group">
+                <input disabled value="{{owner.last_name}}" class="form-input form-input-disabled"
+                    placeholder="Last name" type="text" name="last_name" id="last_name" required>
+                <label class="form-label" for="last_name">Last name</label>
+            </div>
+            <div class="form-group">
+                <input value="{{owner.email}}" class="form-input" placeholder="Email" type="email" name="email"
+                    id="email" required>
+                <label class="form-label" for="email">Email</label>
+            </div>
+            <div class="form-group">
+                <input value="{{owner.phone}}" class="form-input" placeholder="Phone" type="phone" name="phone"
+                    id="phone" required>
+                <label class="form-label" for="phone">Phone</label>
+            </div>
+            <div class="form-group">
+                <div class="form-radio-group">
+                    {% if owner.registered %}
+                    <input disabled checked type="radio" class="form-radio-input" id="yes" name="register" value="True">
+                    {% else %}
+                    <input disabled type="radio" class="form-radio-input" id="yes" name="register" value="True">
+                    {% endif %}
+                    <label for="yes" class="form-radio-label form-radio-label-disabled">
+                        <span class="form-radio-button"></span>
+                        Yes please
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-radio-group">
+                    {% if not owner.registered %}
+                    <input disabled checked type="radio" class="form-radio-input" id="no" name="register" value="False">
+                    {% else %}
+                    <input disabled type="radio" class="form-radio-input" id="no" name="register" value="False">
+                    {% endif %}
+                    <label for="no" class="form-radio-label form-radio-label-disabled">
+                        <span class="form-radio-button"></span>
+                        No please
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-green" type="submit">Update Owner</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

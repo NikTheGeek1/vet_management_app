@@ -1,0 +1,101 @@
+.section-pets {
+    background-color: #f7f7f7f7;
+    grid-area: pets;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 40% 40%;
+    column-gap: 5rem;
+    row-gap: 3rem;
+}
+
+.pet-section-heading {
+    grid-column: 1/-1;
+    justify-self: center;
+}
+
+.pet-box-1,
+.pet-box-2 {
+    height: 25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    margin-bottom: 4rem;
+    display: grid;
+    column-gap: 1rem;
+    background-image: linear-gradient(rgba(126, 213, 111, .5),
+    rgba(40, 180, 133, .5)
+    );
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 10rem 1fr;
+    box-shadow: 1rem 2rem 3rem 3rem rgba(40, 180, 133, .5);
+    grid-template-areas: "pet-img pet-title" "pet-img pet-paragraph";
+}
+
+.pet-box-1 {
+    justify-self: end;
+}
+.pet-img-box {
+    overflow: hidden;
+    grid-row: 1/1;
+    grid-column: 1/1;
+}
+
+.pet-profile-img {
+    width: 10rem;
+    transform: scale(1.2);
+    transition: all .2s;
+}
+
+.pet-box-1:hover > figure > div > img {
+    transform: scale(1);
+    filter: blur(10px);
+}
+
+.pet-box-1:hover > figure > figcaption {
+    transform: scale(2);
+    opacity: 1;
+    color: white;
+}
+
+.pet-box-2:hover > figure > div > img {
+    transform: scale(1);
+    filter: blur(10px);
+}
+
+.pet-box-2:hover > figure > figcaption {
+    transform: scale(2);
+    opacity: 1;
+    color: white;
+}
+
+
+.pet-figure-box {
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-area: pet-img;
+}
+
+.pet-name {
+    grid-row: 1/1;
+    grid-column: 1/1;
+    justify-self: center;
+    align-self: center;
+    z-index: 1;
+    transition: all .2s;
+    opacity: 0;
+}
+
+.pet-heading {
+    justify-self: center;
+    grid-area: pet-title;
+}
+
+.pet-paragraph {
+    grid-area: pet-paragraph;
+    align-self: center;
+}

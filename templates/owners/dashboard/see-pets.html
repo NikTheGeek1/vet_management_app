@@ -1,0 +1,105 @@
+{% extends "owners/dashboard/base.html" %}
+
+{% block owners_dashboard %}
+{% if pets|length %}
+{% for pet in pets %}
+<div class="owners-pet-box">
+    {% if pet.image64 %}
+    <img src='data:{{pet.image_type}};base64, {{pet.image64}}' alt="pet-{{pet.id}}" class="owners-pet-profile-img">
+    {% else %}
+    <img src="/static/images/cat_paw_logo_white.png" alt="pet-{{pet.id}}" class="owners-pet-profile-img">
+    {% endif %}
+    <form class="form owners-form" method="POST" action="/owners/{{owner.id}}/pets/{{pet.id}}" enctype="multipart/form-data">
+        <div class="form-group">
+            <input value="{{pet.name}}" class="form-input" placeholder="Name" type="text" name="name" id="name-{{pet.id}}"
+                required>
+            <label class="form-label" for="name-{{pet.id}}">Name</label>
+        </div>
+        <div class="form-group">
+            <input disabled value="{{pet.type}}" class="form-input form-input-disabled" placeholder="Type" type="text"
+                name="type" id="type-{{pet.id}}" required>
+            <label class="form-label" for="type-{{pet.id}}">Type</label>
+        </div>
+        <div class="form-group">
+            <input value="{{pet.dob}}"class="form-input" type="date" name="dob" id="dob-{{pet.id}}">
+            <label class="form-label" for="dob-{{pet.id}}">Date of birth</label>
+        </div>
+        <div class="form-group">
+            <input value="{{pet.yo}}" class="form-input" placeholder="Years Old"
+                type="text" name="yo" id="yo-{{pet.id}}" required>
+            <label class="form-label" for="yo-{{pet.id}}">Years Old</label>
+        </div>
+        <div class="form-group">
+            <select name="vet" id="owner-pet-vet-{{pet.id}}">
+                {% for vet in vets %}
+                {% if vet.id == pet.vet_id %}
+                <option selected value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
+                {% else %}
+                <option value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
+                {% endif%}
+                {% endfor %}
+            </select>
+            <label class="form-label" for="owner-pet-vet-{{pet.id}}">Vet</label>
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-input upload-input" id="image-{{pet.id}}" name="image">
+            <label class="form-label upload-label" for="image-{{pet.id}}">Upload image</label>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-green" type="submit">Update Pet</button>
+        </div>
+    </form>
+
+</div>
+{% endfor %}
+
+<div class="owners-pet-box">
+
+    <!-- fixed form -->
+    <img src="/static/images/new-pet.png" alt="pet-new" class="owners-pet-profile-img">
+
+    <form class="form owners-form" enctype="multipart/form-data" method="POST" action="/owners/{{owner.id}}/add-pet">
+        <div class="form-group">
+            <input class="form-input" placeholder="Name" type="text" name="name" id="name" required>
+            <label class="form-label" for="name">Name</label>
+        </div>
+        <div class="form-group">
+            <input class="form-input" placeholder="Type" type="text" name="type" id="type" required>
+            <label class="form-label" for="type">Type</label>
+        </div>
+        <div class="form-group">
+            <input class="form-input" type="date" name="dob" id="dob">
+            <label class="form-label" for="dob">Date of birth (if known)</label>
+        </div>
+        <div class="form-group">
+            <input class="form-input" placeholder="Years Old (years.months [month range: 0.01 - 0.11]) Type '-' if you have entered DoB" type="text" name="yo" id="yo" required>
+            <label class="form-label" for="yo">Years Old (years.months [month range: 0.01 - 0.11]) Type '-' if you have entered DoB</label>
+        </div>
+
+        <div class="form-group">
+            <select name="vet" id="owner-pet-vet" required>
+                {% for vet in vets %}
+                <option value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
+                {% endfor %}
+            </select>
+            <label class="form-label" for="owner-pet-vet">Vet</label>
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-input upload-input" id="image" name="image">
+            <label class="form-label upload-label" for="image">Upload image</label>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-green" type="submit">New Pet</button>
+        </div>
+    </form>
+</div>
+{% else %}
+<div class="no-pets-div">
+    <div>
+        <h2 class="heading-secondary">{{owner.first_name}} has no pets -- <a href="#">add a pet.</a></h2>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

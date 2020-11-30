@@ -1,0 +1,54 @@
+.section-owners {
+    display: grid;
+    grid-template-rows: 20rem 5rem minmax(80vh, 1fr);
+    grid-template-areas: "owners-nav" "owners-dashboard" "owners-main";
+}
+.dashboard-nav-off {
+    grid-area: owners-dashboard;
+    background-color:  #f7f7f7;
+}
+.header-owners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #55c57a;
+    grid-area: owners-nav;
+}
+
+.navigation-owners {
+    width: 100%;
+}
+
+.navigation-list-owners {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    justify-items: center;
+}
+
+.navigation-item-owners {
+    text-decoration: none;
+}
+
+.navigation-item-owners > a {
+    text-decoration: none;
+    font-size: 3.6rem;
+    color: white;
+}
+
+.owners-selected-page {
+    text-decoration: underline !important;
+}
+
+.owners-info-div {
+    grid-area: owners-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap: 4rem;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+}
+
+.owners-par-info {
+}

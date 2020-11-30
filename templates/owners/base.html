@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block base %}
+<section class="section-owners">
+    <header class="header-owners">
+        <nav class="navigation-owners">
+            <ul class="navigation-list-owners">
+                {% if selected_page == 'info' %}
+                <li class="navigation-item-owners"><a class="owners-selected-page" href="/owners">Info</a></li>
+                {% else %}
+                <li class="navigation-item-owners"><a href="/owners">Info</a></li>
+                {% endif %}
+                {% if selected_page == 'add_owner' %}
+                <li class="navigation-item-owners"><a class="owners-selected-page" href="/owners/add">Add Owner</a></li>
+                {% elif selected_page == 'update_owner' %}
+                <li class="navigation-item-owners"><a class="owners-selected-page" href="#">{{owner.first_name}}'s Dashboard</a></li>
+                {% else %}
+                <li class="navigation-item-owners"><a href="/owners/add">Add Owner</a></li>
+                {% endif %}
+                {% if selected_page == 'see_owners' %}
+                <li class="navigation-item-owners"><a class="owners-selected-page" href="/owners/all">See Owners</a></li>
+                {% else %}
+                <li class="navigation-item-owners"><a href="/owners/all">See Owners</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block owners %}
+    {% endblock %}
+</section>
+
+{% endblock %}

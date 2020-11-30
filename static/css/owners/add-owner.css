@@ -1,0 +1,13 @@
+.owners-add-div {
+    grid-area: owners-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap: 4rem;
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+     url(/static/images/add-owner.jpg);
+    background-size: cover;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+}
+

@@ -59,18 +59,17 @@ class VetRep:
 
         for row in results:
             pet = Pet(
-                row['name'], 
+                row['pet_name'], 
                 row['dob'], 
                 row['yo'], 
-                row['type'], 
+                row['animal_type'], 
                 row['owner_id'], 
                 row['vet_id'], 
-                row['image'], 
+                row['img'], 
                 row['id']
             )
             pets.append(pet)
         return pets
 
     
-
     

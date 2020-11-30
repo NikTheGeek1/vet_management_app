@@ -15,9 +15,12 @@ class OwnerRep:
         owner.id = results[0]["id"]
         return owner
 
-    def select_all(self):
+    def select_all(self, sort = False):
         owners = []
-        sql = f"SELECT * FROM {self.table}"
+        if sort:
+            sql = f"SELECT * FROM {self.table} ORDER BY last_name ASC"
+        else:
+            sql = f"SELECT * FROM {self.table}"
         results = run_sql(sql)
 
         for row in results:
@@ -59,9 +62,9 @@ class OwnerRep:
         values = [id]
         run_sql(sql, values)
     
-    def update(self, owner):
+    def update(self, owner_email, owner_phone, owner_id):
         sql = f"UPDATE {self.table} " + "SET (email, phone) = (%s, %s) WHERE id = %s"
-        values = [owner.email, owner.phone, owner.id]
+        values = [owner_email, owner_phone, owner_id]
         run_sql(sql, values)
 
     def get_pets(self, owner_id):
@@ -72,13 +75,14 @@ class OwnerRep:
 
         for row in results:
             pet = Pet(
-                row['name'], 
+                row['pet_name'], 
                 row['dob'], 
                 row['yo'], 
-                row['type'], 
+                row['animal_type'], 
                 row['owner_id'], 
                 row['vet_id'], 
-                row['image'], 
+                row['img'], 
+                row['img_type'],
                 row['id']
             )
             pets.append(pet)
@@ -114,5 +118,7 @@ class OwnerRep:
             testimonial = Testimonial(result['testimonial'], result['owner_id'], result['id'])
 
         return testimonial
+
+    
 
     

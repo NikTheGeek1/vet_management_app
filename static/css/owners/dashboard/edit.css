@@ -1,0 +1,41 @@
+.owners-edit-div {
+    grid-area: owners-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap: 4rem;
+     url(/static/images/add-owner.jpg);
+    background-size: cover;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+}
+
+
+.dashboard-nav {
+    grid-area: owners-dashboard;
+    background-color:  #333;
+}
+
+.dashboard-nav-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    height: 100%;
+    align-items: center;
+    margin: 0 3rem;
+}
+
+
+.dashboard-nav-item {
+    
+}
+
+.dashboard-nav-item > a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6rem;
+}
+
+.dashboard-nav-item-selected > a{
+    text-decoration: underline;
+}

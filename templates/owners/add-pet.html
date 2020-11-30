@@ -1,0 +1,53 @@
+{% extends "owners/base.html" %}
+
+{% block owners %}
+
+{% if not pets %}
+    <div class="form-box">
+        <h2 class="heading-secondary">Add pet</h2>
+        <form class="form pet-form" method="POST" action="/owners/add/pet">
+            <div class="form-group">
+                <input class="form-input"
+                    placeholder="Name" type="text" name="name" id="name" required>
+                <label class="form-label" for="name">Name</label>
+            </div>
+
+
+
+            <div class="form-group">
+                <input class="form-input"
+                    placeholder="Years old" type="number" name="yo" id="yo">
+                <label class="form-label" for="y">Years old</label>
+            </div>
+            <div class="form-group">
+                <select name="type" id="type">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="monkey">Monkey</option>
+                    <option value="canaryn">Canaryn</option>
+                    <option value="chiken">Chicken</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="vet" id="vet">
+                    {% for vet in vets %}
+                        <option value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="image">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-green" type="submit">Add pet</button>
+            </div>
+        </form>
+    </div>
+    {% else %}
+
+    {% endif %}
+
+
+    {% endblock %}

@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block base %}
+<header class="header">
+    <div class="header-logo-box">
+        <img src="/static/images/cat_paw_logo_white.png" alt="logo" class="logo">
+    </div>
+
+    <div class="header-text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary-main">Vet Management</span>
+            <span class="heading-primary-sub">management means caring</span>
+        </h1>
+
+        <a href="#section-services" class="btn btn-white btn-animated">See services</a>
+    </div>
+</header>
+<main class="main-layout">
+    <section class="section-treatments">
+        <h2 class="treatments-heading heading-secondary">Medical Treatments</h2>
+        <div class="treatments-overview-box">
+            <h3 class="heading-tertiary">Before purchasing or adopting an animal...</h3>
+            <p class="paragraph">Just as in human medicine, there are many techniques veterinarians can use to improve
+                an animal's health. Your practitioner will diagnose your animal's condition and recommend a course of
+                treatment based on your pet's symptoms, age, medical record, species, behavior, and preferences. Your
+                primary veterinarian can perform certain treatments, but in more complicated circumstances, your animal
+                may need to be referred to a veterinary specialist with more extensive knowledge and experience.</p>
+            <a class="btn-text" href="#">Learn more -></a>
+        </div>
+
+        <div class="treatments-images-box">
+            <img class="treatments-img-1" src="/static/images/veterinary-treatments-1.jpg" alt="dog gets pill">
+            <img class="treatments-img-2" src="/static/images/veterinary-treatments-2.jpg" alt="cat gets pill">
+            <img class="treatments-img-3" src="/static/images/veterinary-treatments-3.jpeg" alt="cat gets pill">
+        </div>
+    </section>
+
+    <section class="section-vets">
+        <div class="vet-box">
+            <figure class="vet-figure-box margin-top-small">
+                <div class="vet-img-box">
+                    <img src="/static/images/vet-1.jpg" alt="vet-1" class="vet-profile-img">
+                </div>
+                <figcaption class="vet-name">Alan Smith</figcaption>
+            </figure>
+            <h3 class="heading-tertiary margin-top-medium vet-heading">Nutritionist</h3>
+            <p class="paragraph">
+                Dr Smith animal is a scientist who applies their knowledge of anatomy, physiology and nutrition, to
+                animal
+                food and diets.
+            </p>
+        </div>
+
+        <div class="vet-box">
+            <figure class="vet-figure-box margin-top-small">
+                <div class="vet-img-box">
+                    <img src="/static/images/vet-2.jpeg" alt="vet-2" class="vet-profile-img">
+                </div>
+                <figcaption class="vet-name">Theresa Talbot</figcaption>
+            </figure>
+            <h3 class="heading-tertiary margin-top-medium vet-heading">Food Safety Specialist</h3>
+            <p class="paragraph">
+                Dr Talbot is in charge of food safety, quality assurance, and protection from unintentional or
+                intentional
+                contamination of food, the food that your beloved pets will eat.
+            </p>
+        </div>
+
+        <div class="vet-box">
+            <figure class="vet-figure-box margin-top-small">
+                <div class="vet-img-box">
+                    <img src="/static/images/vet-3.jpg" alt="vet-3" class="vet-profile-img">
+                </div>
+                <figcaption class="vet-name">Melissa Dudley</figcaption>
+            </figure>
+            <h3 class="heading-tertiary margin-top-medium vet-heading">Researcher</h3>
+            <p class="paragraph">
+                Dr Dudley seeks better ways to prevent, diagnose and treat animal and human
+                health problems. She studies many diseases such as cancer and cardiovascular disease using laboratory
+                animals that are carefully bred, raised, and maintained under the supervision of veterinarians.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-pets">
+        <h2 class="pet-section-heading heading-secondary padding-top-large">Meet some of our friends </h2>
+        <div class="pet-box-1">
+            <figure class="pet-figure-box margin-top-small">
+                <div class="pet-img-box">
+                    <img src="/static/images/pet-1.jpg" alt="pet-3" class="pet-profile-img">
+                </div>
+                <figcaption class="pet-name">Smokey</figcaption>
+            </figure>
+            <h3 class="heading-tertiary margin-top-medium pet-heading">Smokey</h3>
+            <p class="paragraph pet-paragraph">
+                Smokey was tired when he came visiting. This is what
+                parasitic worms do to your pet; they steal all important
+                nutritients and leave the poor pet tired. Hopefully, Dr Smith
+                was there and wrote Smokey anthelmintics which saved him.
+            </p>
+        </div>
+        <div class="pet-box-2">
+            <figure class="pet-figure-box margin-top-small">
+                <div class="pet-img-box">
+                    <img src="/static/images/pet-2.jpg" alt="pet-3" class="pet-profile-img">
+                </div>
+                <figcaption class="pet-name">Pinky</figcaption>
+            </figure>
+            <h3 class="heading-tertiary margin-top-medium pet-heading">Pinky</h3>
+            <p class="paragraph pet-paragraph">
+                Pinky was tired when he came visiting. This is what
+                parasitic worms do to your pet; they steal all important
+                nutritients and leave the poor pet tired. Hopefully, Dr Smith
+                was there and wrote Pinky anthelmintics which saved her.
+            </p>
+        </div>
+    </section>
+    <section class="section-testimonials">
+        <div class="testimonials-scrollable">
+            <div class="testimonial-box">
+                <h3 class="heading-tertiary">Name</h3>
+                <p class="paragraph">I am glad I brought
+                    my pet here, good times.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
