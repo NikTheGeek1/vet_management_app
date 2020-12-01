@@ -54,7 +54,7 @@ moore_obj = OwnerRep().save(moore)
 pickerin = Owner('Martin', 'Pickerin', 'mpickerin@outlook.com', '+44 7444449697', True)
 pickerin_obj = OwnerRep().save(pickerin)
 
-baddeley = Owner('Alan', 'Baddeley', 'abaddeley@outlook.com', '+44 7454449697', True)
+baddeley = Owner('Alan', 'Baddeley', 'abaddeley@outlook.com', '+44 7454449697', False)
 baddeley_obj = OwnerRep().save(baddeley)
 #################
 
@@ -80,68 +80,68 @@ martin_obj = VetRep().save(vet6)
 
 # PETS
 evi_pet1_img = read_file('pets_images_base64/pet-1.txt')
-evi_pet1 = Pet('Dobby', dt.date(2020, 7, 23), False, 'cat', evi_obj, melissa_obj, evi_pet1_img[0], evi_pet1_img[1])
-PetRep().save(evi_pet1)
+evi_pet1 = Pet('Dobby', dt.date(2020, 7, 23), False, 'Cat', evi_obj, melissa_obj, evi_pet1_img[0], evi_pet1_img[1])
+pet_1 = PetRep().save(evi_pet1)
 
 evi_pet2_img = read_file('pets_images_base64/pet-2.txt')
-evi_pet2 = Pet('Smokey', dt.date(2020, 3, 23), False, 'cat', evi_obj, melissa_obj, evi_pet2_img[0], evi_pet2_img[1])
-PetRep().save(evi_pet2)
+evi_pet2 = Pet('Smokey', dt.date(2020, 3, 23), False, 'Cat', evi_obj, melissa_obj, evi_pet2_img[0], evi_pet2_img[1])
+pet_2 = PetRep().save(evi_pet2)
 
 evi_pet3_img = read_file('pets_images_base64/pet-3.txt')
-evi_pet3 = Pet('Jack', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet3_img[0], evi_pet3_img[1])
-PetRep().save(evi_pet3)
+evi_pet3 = Pet('Jack', dt.date(2020, 2, 3), False, 'Cat', evi_obj, melissa_obj, evi_pet3_img[0], evi_pet3_img[1])
+pet_3 = PetRep().save(evi_pet3)
 
 mario_pet1_img = read_file('pets_images_base64/pet-4.txt')
-mario_pet1 = Pet('Layla', dt.date(2018, 2, 3), False, 'cat', marios_obj, john_obj, mario_pet1_img[0], mario_pet1_img[1])
-PetRep().save(mario_pet1)
+mario_pet1 = Pet('Layla', dt.date(2018, 2, 3), False, 'Cat', marios_obj, john_obj, mario_pet1_img[0], mario_pet1_img[1])
+pet_4 = PetRep().save(mario_pet1)
 
 moore_pet1_img = read_file('pets_images_base64/pet-5.txt')
-moore_pet1 = Pet('Ash', dt.date(2020, 2, 3), False, 'cat', moore_obj, alan_obj, moore_pet1_img[0], moore_pet1_img[1])
-PetRep().save(moore_pet1)
+moore_pet1 = Pet('Ash', dt.date(2020, 2, 3), False, 'Cat', moore_obj, alan_obj, moore_pet1_img[0], moore_pet1_img[1])
+pet_5 = PetRep().save(moore_pet1)
 
 kost_pet1_img = read_file('pets_images_base64/pet-6.txt')
-kost_pet1 = Pet('Felix', dt.date(2019, 7, 20), False, 'cat', evi_obj, theresa_obj, kost_pet1_img[0], kost_pet1_img[1])
-PetRep().save(kost_pet1)
+kost_pet1 = Pet('Felix', dt.date(2019, 7, 20), False, 'Cat', kost_obj, theresa_obj, kost_pet1_img[0], kost_pet1_img[1])
+pet_6 = PetRep().save(kost_pet1)
 
-baddeley_pet1_img = read_file('pets_images_base64/pet-7.txt')
-baddeley_pet1 = Pet('Nala', dt.date(2019, 2, 23), False, 'cat', evi_obj, elena_obj, baddeley_pet1_img[0], baddeley_pet1_img[1])
-PetRep().save(baddeley_pet1)
+kost_pet3_img = read_file('pets_images_base64/pet-7.txt')
+kost_pet3 = Pet('Nala', dt.date(2019, 2, 23), False, 'Cat', kost_obj, elena_obj, kost_pet3_img[0], kost_pet3_img[1])
+pet_7 = PetRep().save(kost_pet3)
 
 lola_pet1_img = read_file('pets_images_base64/pet-8.txt')
-lola_pet1 = Pet('Cleo', dt.date(2017, 10, 13), False, 'cat', evi_obj, martin_obj, lola_pet1_img[0], lola_pet1_img[1])
-PetRep().save(lola_pet1)
+lola_pet1 = Pet('Cleo', dt.date(2017, 10, 13), False, 'Cat', lola_obj, martin_obj, lola_pet1_img[0], lola_pet1_img[1])
+pet_8 = PetRep().save(lola_pet1)
 
 maria_pet1_img = read_file('pets_images_base64/pet-9.txt')
-maria_pet1 = Pet('Millo', dt.date(2019, 12, 3), False, 'cat', evi_obj, martin_obj, maria_pet1_img[0], maria_pet1_img[1])
-PetRep().save(maria_pet1)
+maria_pet1 = Pet('Millo', dt.date(2019, 12, 3), False, 'Cat', maria_obj, martin_obj, maria_pet1_img[0], maria_pet1_img[1])
+pet_9 = PetRep().save(maria_pet1)
 
 maria_pet2_img = read_file('pets_images_base64/pet-10.txt')
-maria_pet2 = Pet('Ollie', dt.date(2019, 3, 1), False, 'cat', evi_obj, theresa_obj, maria_pet2_img[0], maria_pet2_img[1])
-PetRep().save(maria_pet2)
+maria_pet2 = Pet('Ollie', dt.date(2019, 3, 1), False, 'Cat', maria_obj, theresa_obj, maria_pet2_img[0], maria_pet2_img[1])
+pet_10 = PetRep().save(maria_pet2)
 
 kost_pet2_img = read_file('pets_images_base64/pet-11.txt')
-kost_pet2 = Pet('Chester', dt.date(2020, 2, 3), False, 'cat', evi_obj, alan_obj, kost_pet2_img[0], kost_pet2_img[1])
-PetRep().save(kost_pet2)
+kost_pet2 = Pet('Chester', dt.date(2020, 2, 3), False, 'Cat', kost_obj, alan_obj, kost_pet2_img[0], kost_pet2_img[1])
+pet_11 = PetRep().save(kost_pet2)
 
 pickerin_pet1_img = read_file('pets_images_base64/pet-12.txt')
-pickerin_pet1 = Pet('Finn', dt.date(2020, 2, 3), False, 'Dog', evi_obj, melissa_obj, pickerin_pet1_img[0], pickerin_pet1_img[1])
-PetRep().save(pickerin_pet1)
+pickerin_pet1 = Pet('Finn', dt.date(2020, 2, 3), False, 'Cat', pickerin_obj, melissa_obj, pickerin_pet1_img[0], pickerin_pet1_img[1])
+pet_12 = PetRep().save(pickerin_pet1)
 
 evi_pet4_img = read_file('pets_images_base64/pet-13.txt')
-evi_pet4 = Pet('Jinx', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet4_img[0], evi_pet4_img[1])
-PetRep().save(evi_pet4)
+evi_pet4 = Pet('Jinx', dt.date(2020, 2, 3), False, 'Dog', evi_obj, melissa_obj, evi_pet4_img[0], evi_pet4_img[1])
+pet_13 = PetRep().save(evi_pet4)
 
 evi_pet5_img = read_file('pets_images_base64/pet-14.txt')
-evi_pet5 = Pet('Ditton', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet5_img[0], evi_pet5_img[1])
-PetRep().save(evi_pet5)
+evi_pet5 = Pet('Ditton', dt.date(2020, 2, 3), False, 'Cat', evi_obj, melissa_obj, evi_pet5_img[0], evi_pet5_img[1])
+pet_14 = PetRep().save(evi_pet5)
 
 evi_pet6_img = read_file('pets_images_base64/pet-15.txt')
-evi_pet6 = Pet('Jasmine', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet6_img[0], evi_pet6_img[1])
-PetRep().save(evi_pet6)
+evi_pet6 = Pet('Jasmine', dt.date(2020, 2, 3), False, 'Cat', evi_obj, melissa_obj, evi_pet6_img[0], evi_pet6_img[1])
+pet_15 = PetRep().save(evi_pet6)
 
 evi_pet7_img = read_file('pets_images_base64/pet-16.txt')
 evi_pet7 = Pet('Inka', dt.date(2020, 2, 3), False, 'Dog', evi_obj, melissa_obj, evi_pet7_img[0], evi_pet7_img[1])
-PetRep().save(evi_pet7)
+pet_16 = PetRep().save(evi_pet7)
 
 # FEEDBACKS
 feedback1 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj)
@@ -222,7 +222,23 @@ TreatmentRep().save(bmt)
 
 
 # VISITS
+visit1 = Visit(pet_1.id, dt.date(2020, 7, 28), dt.date(2020, 7, 30), 'In this visit the pet was so cute the disease cured itself')
+VisitRep().save(visit1)
 
+visit2 = Visit(pet_2.id, dt.date(2020, 8, 28), dt.date(2020, 8, 30), 'In this visit the pet was so cute the disease cured itself')
+VisitRep().save(visit2)
+
+visit3 = Visit(pet_3.id, dt.date(2020, 9, 28), dt.date(2020, 9, 30), 'In this visit the pet was so cute the disease cured itself')
+VisitRep().save(visit3)
+
+visit4 = Visit(pet_4.id, dt.date(2020, 11, 28), dt.date(2020, 12, 30), 'In this visit the pet was so cute the disease cured itself')
+VisitRep().save(visit4)
+
+visit5 = Visit(pet_5.id, dt.date(2020, 11, 28), dt.date(2020, 12, 30), 'In this visit the pet was so cute the disease cured itself')
+VisitRep().save(visit5)
+
+visit6 = Visit(pet_6.id, dt.date(2020, 11, 28), dt.date(2020, 12, 30), 'In this visit the pet was so cute the disease cured itself')
+VisitRep().save(visit6)
 ######
 
 pdb.set_trace()
