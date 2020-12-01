@@ -65,8 +65,6 @@ def edit_pets_POST(owner_id, pet_id):
     pet = Pet(name, dob, yo, type_s, owner, vet, new_image_string, new_image_type, pet_id)
     PetRep().update(pet)
 
-    # owner = OwnerRep().select(owner_id)
-    # pets = OwnerRep().get_pets(owner_id)
     return redirect('/owners/'+owner_id+'/pets')
 
 # creating pet form

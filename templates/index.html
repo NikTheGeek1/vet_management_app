@@ -12,7 +12,7 @@
             <span class="heading-primary-sub">management means caring</span>
         </h1>
 
-        <a href="#section-services" class="btn btn-white btn-animated">See services</a>
+        <a href="#section-pets" class="btn btn-white btn-animated">Meet our friends</a>
     </div>
 </header>
 <main class="main-layout">
@@ -80,11 +80,11 @@
                 animals that are carefully bred, raised, and maintained under the supervision of veterinarians.
             </p>
         </div>
-        <a class="btn-text btn-white" href="/vets">See all vets -></a>
+        <a class="btn-text btn-white" style="justify-self: start;" href="/vets">See all vets -></a>
 
     </section>
 
-    <section class="section-pets">
+    <section class="section-pets" id="section-pets">
         <h2 class="pet-section-heading heading-secondary padding-top-large">Meet some of our friends </h2>
         <div class="pet-box-1">
             <figure class="pet-figure-box margin-top-small">
@@ -116,6 +116,7 @@
                 was there and wrote Pinky anthelmintics which saved her.
             </p>
         </div>
+        <a class="btn-text btn-white" style="justify-self: start;" href="/pets/all">See all our friends -></a>
     </section>
     <section class="section-testimonials">
         <div class="testimonials-scrollable">
@@ -124,7 +125,7 @@
                 <hgroup>
                     <h3 class="heading-tertiary"><a style="color: #333" href="/owners/{{testimonial.owner.id}}/testimonial">{{testimonial.owner.first_name}} {{testimonial.owner.last_name}}</a></h3>
                     <hr>
-                    <p class="paragraph">{{testimonial.testimonial}}</p>
+                    <p class="paragraph">"{{testimonial.testimonial}}"</p>
                 </hgroup>
             </div>
             {% endfor %}

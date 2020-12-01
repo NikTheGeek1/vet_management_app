@@ -9,7 +9,6 @@ from models.treatment import Treatment
 from models.vet import Vet
 from models.visit import Visit
 
-
 from repositories.owner_rep import OwnerRep
 from repositories.feedback_rep import FeedbackRep
 from repositories.pet_rep import PetRep
@@ -24,23 +23,24 @@ from utils.read_file import read_file
 VisitRep().delete_all()
 FeedbackRep().delete_all()
 TestimonialRep().delete_all()
+PetTreatmentsRep().delete_all()
 PetRep().delete_all()
 OwnerRep().delete_all()
-PetTreatmentsRep().delete_all()
 TreatmentRep().delete_all()
 VetRep().delete_all()
 
+# OWNERS
 helen = Owner('Helen', 'Theo', 'htheo@outlook.com', '+33 6972845697', True)
 OwnerRep().save(helen)
 
 maria = Owner('Maria', 'Jeyck', 'mjeyck@outlook.com', '+33 6972849697', True)
-OwnerRep().save(maria)
+maria_obj = OwnerRep().save(maria)
 
 lola = Owner('Lola', 'Markelo', 'lmarkelo@outlook.com', '+33 6934449697', True)
-OwnerRep().save(lola)
+lola_obj = OwnerRep().save(lola)
 
 kost = Owner('Kost', 'Theo', 'ktheo@outlook.com', '+33 6945645697', True)
-OwnerRep().save(kost)
+kost_obj = OwnerRep().save(kost)
 
 evi = Owner('Evi', 'Prountz', 'eprountz@outlook.com', '+33 6972454337', True)
 evi_obj = OwnerRep().save(evi)
@@ -48,30 +48,151 @@ evi_obj = OwnerRep().save(evi)
 marios = Owner('Marios', 'Charo', 'mtheocharo@outlook.com', '+33 6944449697', True)
 marios_obj = OwnerRep().save(marios)
 
+moore = Owner('Adam', 'Moore', 'amoore@outlook.com', '+44 7425449697', True)
+moore_obj = OwnerRep().save(moore)
+
+pickerin = Owner('Martin', 'Pickerin', 'mpickerin@outlook.com', '+44 7444449697', True)
+pickerin_obj = OwnerRep().save(pickerin)
+
+baddeley = Owner('Alan', 'Baddeley', 'abaddeley@outlook.com', '+44 7454449697', True)
+baddeley_obj = OwnerRep().save(baddeley)
+#################
+
+# VETS
 vet1 = Vet('Alan', 'Smith')
-VetRep().save(vet1)
+alan_obj = VetRep().save(vet1)
 
 vet2 = Vet('Theresa', 'Talbot')
-VetRep().save(vet2)
+theresa_obj = VetRep().save(vet2)
 
 vet3 = Vet('Melissa', 'Dudley')
 melissa_obj = VetRep().save(vet3)
 
-evi_pet1_img = read_file('pet-1.txt')
+vet4 = Vet('John', 'Martin')
+john_obj = VetRep().save(vet4)
+
+vet5 = Vet('Elena', 'Gherri')
+elena_obj = VetRep().save(vet5)
+
+vet6 = Vet('Martin', 'Corley')
+martin_obj = VetRep().save(vet6)
+###########
+
+# PETS
+evi_pet1_img = read_file('pets_images_base64/pet-1.txt')
 evi_pet1 = Pet('Dobby', dt.date(2020, 7, 23), False, 'cat', evi_obj, melissa_obj, evi_pet1_img[0], evi_pet1_img[1])
 PetRep().save(evi_pet1)
 
-evi_pet2_img = read_file('pet-2.txt')
-evi_pet2 = Pet('Pirpi', dt.date(2020, 3, 23), False, 'cat', evi_obj, melissa_obj, evi_pet2_img[0], evi_pet2_img[1])
+evi_pet2_img = read_file('pets_images_base64/pet-2.txt')
+evi_pet2 = Pet('Smokey', dt.date(2020, 3, 23), False, 'cat', evi_obj, melissa_obj, evi_pet2_img[0], evi_pet2_img[1])
 PetRep().save(evi_pet2)
 
-evi_pet3_img = read_file('pet-3.txt')
-evi_pet3 = Pet('Pirps', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet3_img[0], evi_pet3_img[1])
+evi_pet3_img = read_file('pets_images_base64/pet-3.txt')
+evi_pet3 = Pet('Jack', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet3_img[0], evi_pet3_img[1])
 PetRep().save(evi_pet3)
 
+mario_pet1_img = read_file('pets_images_base64/pet-4.txt')
+mario_pet1 = Pet('Layla', dt.date(2018, 2, 3), False, 'cat', marios_obj, john_obj, mario_pet1_img[0], mario_pet1_img[1])
+PetRep().save(mario_pet1)
 
+moore_pet1_img = read_file('pets_images_base64/pet-5.txt')
+moore_pet1 = Pet('Ash', dt.date(2020, 2, 3), False, 'cat', moore_obj, alan_obj, moore_pet1_img[0], moore_pet1_img[1])
+PetRep().save(moore_pet1)
+
+kost_pet1_img = read_file('pets_images_base64/pet-6.txt')
+kost_pet1 = Pet('Felix', dt.date(2019, 7, 20), False, 'cat', evi_obj, theresa_obj, kost_pet1_img[0], kost_pet1_img[1])
+PetRep().save(kost_pet1)
+
+baddeley_pet1_img = read_file('pets_images_base64/pet-7.txt')
+baddeley_pet1 = Pet('Nala', dt.date(2019, 2, 23), False, 'cat', evi_obj, elena_obj, baddeley_pet1_img[0], baddeley_pet1_img[1])
+PetRep().save(baddeley_pet1)
+
+lola_pet1_img = read_file('pets_images_base64/pet-8.txt')
+lola_pet1 = Pet('Cleo', dt.date(2017, 10, 13), False, 'cat', evi_obj, martin_obj, lola_pet1_img[0], lola_pet1_img[1])
+PetRep().save(lola_pet1)
+
+maria_pet1_img = read_file('pets_images_base64/pet-9.txt')
+maria_pet1 = Pet('Millo', dt.date(2019, 12, 3), False, 'cat', evi_obj, martin_obj, maria_pet1_img[0], maria_pet1_img[1])
+PetRep().save(maria_pet1)
+
+maria_pet2_img = read_file('pets_images_base64/pet-10.txt')
+maria_pet2 = Pet('Ollie', dt.date(2019, 3, 1), False, 'cat', evi_obj, theresa_obj, maria_pet2_img[0], maria_pet2_img[1])
+PetRep().save(maria_pet2)
+
+kost_pet2_img = read_file('pets_images_base64/pet-11.txt')
+kost_pet2 = Pet('Chester', dt.date(2020, 2, 3), False, 'cat', evi_obj, alan_obj, kost_pet2_img[0], kost_pet2_img[1])
+PetRep().save(kost_pet2)
+
+pickerin_pet1_img = read_file('pets_images_base64/pet-12.txt')
+pickerin_pet1 = Pet('Finn', dt.date(2020, 2, 3), False, 'Dog', evi_obj, melissa_obj, pickerin_pet1_img[0], pickerin_pet1_img[1])
+PetRep().save(pickerin_pet1)
+
+evi_pet4_img = read_file('pets_images_base64/pet-13.txt')
+evi_pet4 = Pet('Jinx', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet4_img[0], evi_pet4_img[1])
+PetRep().save(evi_pet4)
+
+evi_pet5_img = read_file('pets_images_base64/pet-14.txt')
+evi_pet5 = Pet('Ditton', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet5_img[0], evi_pet5_img[1])
+PetRep().save(evi_pet5)
+
+evi_pet6_img = read_file('pets_images_base64/pet-15.txt')
+evi_pet6 = Pet('Jasmine', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet6_img[0], evi_pet6_img[1])
+PetRep().save(evi_pet6)
+
+evi_pet7_img = read_file('pets_images_base64/pet-16.txt')
+evi_pet7 = Pet('Inka', dt.date(2020, 2, 3), False, 'Dog', evi_obj, melissa_obj, evi_pet7_img[0], evi_pet7_img[1])
+PetRep().save(evi_pet7)
+
+# FEEDBACKS
 feedback1 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj)
 FeedbackRep().save(feedback1)
+
+feedback2 = Feedback(4, 3, 4, 3, 'You could lower the prices', 'Nice staff', maria_obj)
+FeedbackRep().save(feedback2)
+
+feedback3 = Feedback(4, 3, 4, 3, 'What about doing...', 'An amazing job', evi_obj)
+FeedbackRep().save(feedback3)
+
+feedback4 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', lola_obj)
+FeedbackRep().save(feedback4)
+
+feedback5 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', kost_obj)
+FeedbackRep().save(feedback5)
+
+feedback6 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', moore_obj)
+FeedbackRep().save(feedback6)
+
+feedback7 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', pickerin_obj)
+FeedbackRep().save(feedback7)
+
+feedback8 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', baddeley_obj)
+FeedbackRep().save(feedback8)
+
+feedback9 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj)
+FeedbackRep().save(feedback9)
+
+#########
+
+# Testimonials
+testimonial1 = Testimonial('This was a great experience for me and my pet -thank you so much guys!!', marios_obj)
+TestimonialRep().save(testimonial1)
+
+testimonial2 = Testimonial('This was a life changing experience for me and my pet -thank you so much guys!!', moore_obj)
+TestimonialRep().save(testimonial2)
+
+testimonial3 = Testimonial('This was a great experience for me and my pet -thank you so much guys!!', evi_obj)
+TestimonialRep().save(testimonial3)
+
+testimonial4 = Testimonial('This was a great experience for me and my pet -thank you so much guys!!', pickerin_obj)
+TestimonialRep().save(testimonial4)
+
+testimonial5 = Testimonial('This was a life changing experience for me and my pet -thank you so much guys!!', lola_obj)
+TestimonialRep().save(testimonial5)
+
+testimonial6 = Testimonial('This was a great experience for me and my pet -thank you so much guys!!', kost_obj)
+TestimonialRep().save(testimonial6)
+##############
+
 
 # TREATMENTS 
 anthelmintics = Treatment('Anthelmintics', 'These are used to eliminate parasitic worms, which infest their systems and steal important nutrients.')
@@ -97,6 +218,11 @@ TreatmentRep().save(ophth_drugs)
 
 bmt = Treatment('Behavioral modification treatments', 'f your animal appears neurotic, obsessive, or overly aggressive and other treatments have not been successful, your veterinarian may prescribe behavioral modifiers like antidepressants or antipsychotics.')
 TreatmentRep().save(bmt)
+##############
 
+
+# VISITS
+
+######
 
 pdb.set_trace()
