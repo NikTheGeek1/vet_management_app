@@ -42,3 +42,21 @@ body {
     grid-template-rows: 85vh 85vh 85vh 85vh;
 }
 
+
+@media only screen and (max-width: 1000px) {
+    html {
+        font-size: 58%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 30%;
+    }
+}
