@@ -1,9 +1,11 @@
 import unittest
 from models.feedback import Feedback
+from models.owner import Owner
 
 class FeedbackTest(unittest.TestCase):
     def setUp(self):
-        self.feedback = Feedback(1, 2, 3, 4, 'sugg', 'oth', 5, 6)
+        owner = Owner('Jack', 'White', 'jwhite@outlook.com', '487239847', True, id = 5)
+        self.feedback = Feedback(1, 2, 3, 4, 'sugg', 'oth', owner, 6 )
     
     def test_qos(self):
         self.assertEqual(1, self.feedback.qos)
@@ -24,7 +26,7 @@ class FeedbackTest(unittest.TestCase):
         self.assertEqual('oth', self.feedback.other_comment)
     
     def test_owner_id(self):
-        self.assertEqual(5, self.feedback.owner_id)
+        self.assertEqual(5, self.feedback.owner.id)
 
     def test_id(self):
         self.assertEqual(6, self.feedback.id)
