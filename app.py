@@ -17,6 +17,8 @@ from controllers.pet_dashboard.details_controller import pets_details_blueprint
 from controllers.pet_dashboard.visits_controller import pets_visits_blueprint
 from controllers.pet_dashboard.treatments_controller import pets_treatments_blueprint
 
+from controllers.treatment_controller import treatments_blueprint
+
 app = Flask(__name__)
 
 app.register_blueprint(owners_blueprint)
@@ -34,6 +36,8 @@ app.register_blueprint(pets_blueprint)
 app.register_blueprint(pets_details_blueprint)
 app.register_blueprint(pets_visits_blueprint)
 app.register_blueprint(pets_treatments_blueprint)
+
+app.register_blueprint(treatments_blueprint)
 
 @app.route('/')
 def index():

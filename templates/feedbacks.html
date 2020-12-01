@@ -11,15 +11,17 @@
     </header>
     <div class="feedbacks-feedbacks-div">
         {% for feedback in feedbacks %}
-            <div class="feedback-feedbacks-div">
-                <h3 class="heading-tertiary"><a href="/owners/{{feedback.owner.id}}/edit">{{feedback.owner.first_name}} {{feedback.owner.last_name}}</a></h3>
-                <hr>
-                <p class="paragraph" style="margin-bottom: 0;">Overal: {{feedback.get_average}}</p>
-                <p>Quality of service: {{ feedback.qos }}</p>
-                <p>Friendly staff: {{ feedback.fs }}</p>
-                <p>Clean facilities: {{ feedback.cf }}</p>
-                <p>Would you recommend: {{ feedback.recommend }}</p>
-            </div>
+        <div class="feedback-feedbacks-div">
+            <h3 class="heading-tertiary"><a style="color: #333;"
+                    href="/owners/{{feedback.owner.id}}/edit">{{feedback.owner.first_name}}
+                    {{feedback.owner.last_name}}</a></h3>
+            <hr>
+            <p class="paragraph" style="margin-bottom: 0;">Overal: {{feedback.get_average}}</p>
+            <p>Quality of service: {{ feedback.qos }}</p>
+            <p>Friendly staff: {{ feedback.fs }}</p>
+            <p>Clean facilities: {{ feedback.cf }}</p>
+            <p>Would you recommend: {{ feedback.recommend }}</p>
+        </div>
         {% endfor %}
     </div>
 </section>

@@ -96,8 +96,8 @@ class PetRep:
         sql = """
         SELECT treatments.* FROM treatments
         INNER JOIN pets_treatments ON treatments.id = pets_treatments.treatment_id
-        INNER JOIN pets ON pets_treatments.pet_id = pet.id
-        WHERE id = %s
+        INNER JOIN pets ON pets_treatments.pet_id = pets.id
+        WHERE pets.id = %s
         """
         values = [pet_id]
         results = run_sql(sql, values)

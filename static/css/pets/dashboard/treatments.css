@@ -29,7 +29,7 @@
     grid-area: pet-main;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 }
-.new-check-in-form {
+.new-treatment-form {
     margin-top: 4rem;
     grid-column: 1/-1;
     margin-bottom: 4rem;

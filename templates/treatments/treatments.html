@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block base %}
+<section class="section-treatments-">
+    <header class="header-treatments">
+        <nav class="navigation-treatments">
+            <ul class="navigation-list-treatments">
+                <li class="navigation-item-treatments treatments-selected-page"><a href="">All treatments</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="treatments-treatments-div">
+        {% for treatment in treatments %}
+        <div class="treatment-with-pets-div">
+            <div class="treatment-treatments-div">
+                <h3 class="heading-tertiary">{{treatment.title}}</h3>
+                <hr>
+                <p class="paragraph" style="margin-bottom: 0;">{{treatment.description}}</p>
+            </div>
+            <hr>
+            <div class="pets-in-treatments-div">
+                {% for pet in treat_dic.get(treatment.title) %}
+                {% if pet.image64 %}
+                <img src='data:{{pet.image_type}};base64, {{pet.image64}}' alt="pet-{{pet.id}}"
+                    class="pet-image-treatments">
+                {% else %}
+                <img src="/static/images/cat_paw_logo_white.png" alt="pet-{{pet.id}}" class="pet-image-treatments">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

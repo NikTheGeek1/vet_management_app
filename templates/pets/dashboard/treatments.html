@@ -15,7 +15,7 @@
         </div>
     </div>
     {% endfor %}
-        <div class="new-check-in-form" style="text-align: center;">
+        <div class="new-treatment-form" style="text-align: center;">
             <h2 class="heading-secondary">Add treatment</h2>
     
             <form class="form treatments-form" method="POST" action="/pets/{{pet.id}}/treatments/add">
@@ -23,14 +23,9 @@
                     <label class="form-label" for="treatment">Treatment</label>
                     <select class="select-treatment" name="treatment" id="treatment" required>
                         {% for treatment in all_treatments %}
-                            <option value="{{treatment.id}}">{{treatment.description}}</option>
+                            <option value="{{treatment.id}}">{{treatment.title}}</option>
                         {% endfor %}
                     </select>
-                </div>
-                <div class="form-group">
-                    <textarea required class="form-input" placeholder="Description" type="text" name="description"
-                        id="description"></textarea>
-                    <label class="form-label" for="description">Description</label>
                 </div>
                 <div class="form-group margin-top-large">
                     <button class="btn btn-green" type="submit">Add treatment</button>
@@ -48,7 +43,7 @@
                 <label class="form-label" for="treatment">Treatment</label>
                 <select class="select-treatment" name="treatment" id="treatment" required>
                     {% for treatment in all_treatments %}
-                        <option value="treatment.id">{{treatment.description}}</option>
+                        <option value="{{treatment.id}}">{{treatment.title}}</option>
                     {% endfor %}
                 </select>
             </div>

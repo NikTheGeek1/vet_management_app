@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.treatment import Treatment
 from models.pet import Pet
 from repositories.pet_rep import PetRep
-
+from repositories.treatment_rep import TreatmentRep
 from models.pet_treatment import PetTreatment
 
 class PetTreatmentsRep:
@@ -22,10 +22,11 @@ class PetTreatmentsRep:
         results = run_sql(sql)
 
         for row in results:
-            pet = pet
+            pet = PetRep().select(row['pet_id'])
+            treatment = TreatmentRep().select(row['treatment_id'])
             pet_treatment = PetTreatment(
-                row["pet_id"],
-                row["treatment_id"],
+                pet,
+                treatment,
                 row["id"],
             )
             pets_treatments.append(pet_treatment)
@@ -38,9 +39,11 @@ class PetTreatmentsRep:
         result = run_sql(sql, values)[0]
 
         if result is not None:
+            pet = PetRep().select(result['pet_id'])
+            treatment = TreatmentRep().select(result['treatment_id'])
             pet_treatment = PetTreatment(
-                result["pet_id"],
-                result["treatment_id"],
+                pet,
+                treatment,
                 result["id"],
             )
         return pet_treatment

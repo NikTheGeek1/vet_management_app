@@ -1,0 +1,72 @@
+.section-treatments- {
+    display: grid;
+    grid-template-rows: 20rem minmax(80vh, 1fr);
+    grid-template-areas: "treatments-nav" "treatments-main";
+}
+
+.header-treatments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #55c57a;
+    grid-area: treatments-nav;
+}
+
+.navigation-treatments {
+    width: 100%;
+}
+
+.navigation-list-treatments {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    justify-items: center;
+}
+
+.navigation-item-treatments {
+    text-decoration: none;
+}
+
+.navigation-item-treatments > a {
+    text-decoration: none;
+    font-size: 3.6rem;
+    color: white;
+}
+
+.treatments-selected-page {
+    text-decoration: underline !important;
+}
+
+.treatments-treatments-div {
+    grid-area: treatments-main;
+    display: grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: 1fr;
+    column-gap: 4rem;
+    background-color: #f7f7f7;
+    padding: 10rem 5rem 2rem;
+}
+
+
+.treatment-treatments-div {
+}
+
+
+.treatment-with-pets-div {
+    margin-bottom: 3rem;
+}
+
+
+.pet-image-treatments {
+    width: 8rem;
+    height: 8rem;
+    margin-right: 2rem;
+}
+
+.pets-in-treatments-div {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 10rem));
+
+    width: 100%;
+}
