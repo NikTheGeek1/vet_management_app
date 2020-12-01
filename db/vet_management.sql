@@ -28,8 +28,8 @@ CREATE TABLE pets (
     dob DATE,
     yo NUMERIC,
     animal_type VARCHAR(255),
-    owner_id INT REFERENCES owners(id),
-    vet_id INT REFERENCES vets(id),
+    owner_id INT REFERENCES owners(id) on DELETE CASCADE,
+    vet_id INT REFERENCES vets(id) on DELETE CASCADE,
     img VARCHAR,
     img_type VARCHAR(255)
 );
@@ -42,7 +42,7 @@ CREATE TABLE treatments (
 
 CREATE TABLE visits (
     id SERIAL PRIMARY KEY,
-    pet_id INT REFERENCES pets(id),
+    pet_id INT REFERENCES pets(id) on DELETE CASCADE,
     check_in DATE,
     check_out DATE,
     description TEXT
@@ -56,17 +56,17 @@ CREATE TABLE feedbacks (
     recommend INT,
     suggestions TEXT,
     other_comment TEXT,
-    owner_id INT REFERENCES owners(id)
+    owner_id INT REFERENCES owners(id) on DELETE CASCADE
 );
 
 CREATE TABLE testimonials (
     id SERIAL PRIMARY KEY,
     testimonial TEXT,
-    owner_id INT REFERENCES owners(id)
+    owner_id INT REFERENCES owners(id) on DELETE CASCADE
 );
 
 CREATE TABLE pets_treatments (
     id SERIAL PRIMARY KEY,
-    pet_id INT REFERENCES pets(id),
-    treatment_id INT REFERENCES treatments(id)
+    pet_id INT REFERENCES pets(id) on DELETE CASCADE,
+    treatment_id INT REFERENCES treatments(id) on DELETE CASCADE
 );

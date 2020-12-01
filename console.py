@@ -196,28 +196,28 @@ TestimonialRep().save(testimonial6)
 
 # TREATMENTS 
 anthelmintics = Treatment('Anthelmintics', 'These are used to eliminate parasitic worms, which infest their systems and steal important nutrients.')
-TreatmentRep().save(anthelmintics)
+treatment1 = TreatmentRep().save(anthelmintics)
 
 dermatological = Treatment('Dermatological drugs', 'Oral, topical, or injected medications might be used to treat common skin and ear conditions in animals.')
-TreatmentRep().save(dermatological)
+treatment2 = TreatmentRep().save(dermatological)
 
 cnsmed = Treatment('Central nervous system medications', 'Drugs like aminocaproic acid or potassium bromide might be prescribed to help animals suffering from seizures or epilepsy.')
-TreatmentRep().save(cnsmed)
+treatment3 = TreatmentRep().save(cnsmed)
 
 resp_drugs = Treatment('Respiratory drugs', 'A variety of medications can be used to help animals suffering from respiratory issues. For example, a veterinarian might prescribe inhaled or oral steroids to assist animals suffering from asthma or other disorders that cause wheezing.')
-TreatmentRep().save(resp_drugs)
+treatment4 = TreatmentRep().save(resp_drugs)
 
 antibiotics = Treatment('Antibiotics', 'These medications help animals\' systems fight infection and disease. They can be used once an illness is diagnosed, or a veterinarian might prescribe them preventively before a surgical procedure.')
-TreatmentRep().save(antibiotics)
+treatment5 = TreatmentRep().save(antibiotics)
 
 kid_meds = Treatment('Kidney medications', 'Many animals are prone to kidney issues and these treatments can help slow or stop the progress of these disorders.')
-TreatmentRep().save(kid_meds)
+treatment6 = TreatmentRep().save(kid_meds)
 
 ophth_drugs = Treatment('Ophthalmological drugs', 'Oral medications or eye drops can be used to treat infection and other ocular issues, such as cataracts and glaucoma.')
-TreatmentRep().save(ophth_drugs)
+treatment7 = TreatmentRep().save(ophth_drugs)
 
 bmt = Treatment('Behavioral modification treatments', 'f your animal appears neurotic, obsessive, or overly aggressive and other treatments have not been successful, your veterinarian may prescribe behavioral modifiers like antidepressants or antipsychotics.')
-TreatmentRep().save(bmt)
+treatment8 = TreatmentRep().save(bmt)
 ##############
 
 
@@ -240,5 +240,27 @@ VisitRep().save(visit5)
 visit6 = Visit(pet_6.id, dt.date(2020, 11, 28), dt.date(2020, 12, 30), 'In this visit the pet was so cute the disease cured itself')
 VisitRep().save(visit6)
 ######
+
+
+# TREATMENTS to PETS
+PetTreatmentsRep().save(PetTreatment(pet_1, treatment1))
+PetTreatmentsRep().save(PetTreatment(pet_1, treatment2))
+PetTreatmentsRep().save(PetTreatment(pet_1, treatment3))
+PetTreatmentsRep().save(PetTreatment(pet_1, treatment4))
+PetTreatmentsRep().save(PetTreatment(pet_2, treatment2))
+PetTreatmentsRep().save(PetTreatment(pet_3, treatment3))
+PetTreatmentsRep().save(PetTreatment(pet_4, treatment4))
+PetTreatmentsRep().save(PetTreatment(pet_5, treatment5))
+PetTreatmentsRep().save(PetTreatment(pet_6, treatment6))
+PetTreatmentsRep().save(PetTreatment(pet_7, treatment1))
+PetTreatmentsRep().save(PetTreatment(pet_8, treatment2))
+PetTreatmentsRep().save(PetTreatment(pet_9, treatment3))
+PetTreatmentsRep().save(PetTreatment(pet_10, treatment4))
+PetTreatmentsRep().save(PetTreatment(pet_11, treatment5))
+PetTreatmentsRep().save(PetTreatment(pet_12, treatment6))
+PetTreatmentsRep().save(PetTreatment(pet_13, treatment1))
+PetTreatmentsRep().save(PetTreatment(pet_14, treatment7))
+PetTreatmentsRep().save(PetTreatment(pet_15, treatment8))
+PetTreatmentsRep().save(PetTreatment(pet_16, treatment4))
 
 pdb.set_trace()

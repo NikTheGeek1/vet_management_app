@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, Blueprint
-from models.pet import Pet
 from models.visit import Visit
 from repositories.pet_rep import PetRep
 from repositories.visit_rep import VisitRep

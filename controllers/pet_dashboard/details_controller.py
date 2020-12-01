@@ -7,6 +7,7 @@ from repositories.vet_rep import VetRep
 from repositories.pet_rep import PetRep
 from repositories.owner_rep import OwnerRep
 from utils.string_to_date import string_to_date
+
 pets_details_blueprint = Blueprint('pets_details', __name__)
 
 # EDIT DETAILS DASHBOARD

@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, Blueprint
+from flask import Flask, render_template, Blueprint
 from repositories.feedback_rep import FeedbackRep
-from models.feedback import Feedback
 
 feedbacks_blueprint = Blueprint('feedbacks', __name__)
 

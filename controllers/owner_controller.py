@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 from models.owner import Owner
-from models.pet import Pet
 from repositories.owner_rep import OwnerRep
-from repositories.pet_rep import PetRep
 
 
 owners_blueprint = Blueprint('owners', __name__)

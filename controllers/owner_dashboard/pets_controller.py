@@ -1,13 +1,12 @@
 import base64
 from flask import Flask, render_template, request, redirect, Blueprint
-from models.owner import Owner
 from models.pet import Pet
 from repositories.owner_rep import OwnerRep
 from repositories.pet_rep import PetRep
 from repositories.vet_rep import VetRep
 
 from utils.string_to_date import string_to_date
-from utils.write_to_file import write_to_file
+# from utils.write_to_file import write_to_file
 
 owners_pets_blueprint = Blueprint('owners_pets', __name__)
 

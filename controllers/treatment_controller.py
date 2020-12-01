@@ -1,16 +1,13 @@
-from flask import Flask, render_template, request, redirect, Blueprint
+from flask import Flask, render_template, Blueprint
 from repositories.treatment_rep import TreatmentRep
 from repositories.treatment_pet import PetTreatmentsRep
 from repositories.pet_rep import PetRep
-from models.pet import Pet
-from models.treatment import Treatment
 from models.pet_treatment import PetTreatment
 
 treatments_blueprint = Blueprint('treatments', __name__)
 
 @treatments_blueprint.route('/treatments')
 def treatments():
-    pets = PetRep().select_all()
     treatments = TreatmentRep().select_all()
     treatmentPets = PetTreatmentsRep().select_all()
     # creating a dictionary of all treatments as keys 

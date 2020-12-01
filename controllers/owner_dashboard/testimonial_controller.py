@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, Blueprint
-from models.owner import Owner
 from models.testimonial import Testimonial
 from repositories.owner_rep import OwnerRep
 from repositories.testimonial_rep import TestimonialRep

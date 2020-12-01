@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, redirect, Blueprint
-from models.vet import Vet
-from models.pet import Pet
 from repositories.vet_rep import VetRep
 from repositories.pet_rep import PetRep
 

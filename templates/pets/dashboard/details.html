@@ -27,9 +27,9 @@
                 <label class="form-label" for="dob-{{pet.id}}">Date of birth</label>
             </div>
             <div class="form-group">
-                <input value="{{pet.yo}}" class="form-input" placeholder="Years Old (put a hyphen '-' if you'd like only dob to be consider)" type="text" name="yo"
+                <input value="{{pet.yo}}" class="form-input" placeholder="Years Old (years.months 1.04 = [month range: 0.01 - 0.11]) Type '-' if you have entered DoB" type="text" name="yo"
                     id="yo-{{pet.id}}" required>
-                <label class="form-label" for="yo-{{pet.id}}">Years Old (put a hyphen '-' if you'd like only dob to be consider)</label>
+                <label class="form-label" for="yo-{{pet.id}}">Years Old (years.months 1.04 = [month range: 0.01 - 0.11]) Type '-' if you have entered DoB</label>
             </div>
             <div class="form-group">
                 <select name="vet" id="owner-pet-vet-{{pet.id}}">
