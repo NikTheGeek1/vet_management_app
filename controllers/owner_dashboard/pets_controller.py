@@ -32,6 +32,8 @@ def edit_pets_POST(owner_id, pet_id):
     vet_id = request.form.get('vet')
     image = request.files['image']
 
+    vet = VetRep().select(vet_id)
+    owner = OwnerRep().select(owner_id)
     # date time logic
     if dob_string != '':
         dob = string_to_date(dob_string)
@@ -60,7 +62,7 @@ def edit_pets_POST(owner_id, pet_id):
     # if a new date was given in the form of yo and this is not a dash
     if yo and float(pet.yo) != float(yo):
         dob = False
-    pet = Pet(name, dob, yo, type_s, owner_id, vet_id, new_image_string, new_image_type, pet_id)
+    pet = Pet(name, dob, yo, type_s, owner, vet, new_image_string, new_image_type, pet_id)
     PetRep().update(pet)
 
     # owner = OwnerRep().select(owner_id)
@@ -85,7 +87,10 @@ def create_pet_POST(owner_id):
     type_s = request.form.get('type')
     vet_id = request.form.get('vet')
     image = request.files['image']
-
+    
+    vet = VetRep().select(vet_id)
+    owner = OwnerRep().select(owner_id)    
+    
     # date time logic
     if dob_string != '':
         dob = string_to_date(dob_string)
@@ -104,7 +109,7 @@ def create_pet_POST(owner_id):
         new_image_string = base64.b64encode(image.read()).decode('utf-8')
         # write_to_file(new_image_string, new_image_type) 
 
-    pet = Pet(name, dob, yo, type_s, owner_id, vet_id, new_image_string, new_image_type)
+    pet = Pet(name, dob, yo, type_s, owner, vet, new_image_string, new_image_type)
     PetRep().save(pet)
 
     # owner = OwnerRep().select(owner_id)

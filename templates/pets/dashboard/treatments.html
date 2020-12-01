@@ -1,0 +1,63 @@
+{% extends "pets/dashboard/base.html" %}
+
+{% block pets_dashboard %}
+{% if treatments|length %}
+<div class="pet-treatments-list">
+    {% for treatment in treatments %}
+    <div class="treatments-pet-box">
+        <div>
+            <h3 class="heading-tertiary">{{treatment.title}}</h3>
+            <hr>
+            <div class="treatment-description-div">
+                <p class="paragraph pet-treatments-details" style="text-decoration: underline;">Description</p>
+                <p class="paragraph pet-treatments-details">{{treatment.description}} </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+        <div class="new-check-in-form" style="text-align: center;">
+            <h2 class="heading-secondary">Add treatment</h2>
+    
+            <form class="form treatments-form" method="POST" action="/pets/{{pet.id}}/treatments/add">
+                <div class="form-group ">
+                    <label class="form-label" for="treatment">Treatment</label>
+                    <select class="select-treatment" name="treatment" id="treatment" required>
+                        {% for treatment in all_treatments %}
+                            <option value="{{treatment.id}}">{{treatment.description}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea required class="form-input" placeholder="Description" type="text" name="description"
+                        id="description"></textarea>
+                    <label class="form-label" for="description">Description</label>
+                </div>
+                <div class="form-group margin-top-large">
+                    <button class="btn btn-green" type="submit">Add treatment</button>
+                </div>
+            </form>
+        </div>
+</div>
+{% else %}
+<div class="no-treatments-div">
+    <div style="text-align: center;">
+        <h2 class="heading-secondary">{{pet.name}} has no treatments -- Add a treatment!</h2>
+
+        <form class="form treatments-form" method="POST" action="/pets/{{pet.id}}/treatments/add">
+            <div class="form-group select-treatment-div">
+                <label class="form-label" for="treatment">Treatment</label>
+                <select class="select-treatment" name="treatment" id="treatment" required>
+                    {% for treatment in all_treatments %}
+                        <option value="treatment.id">{{treatment.description}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group margin-top-large">
+                <button class="btn btn-green" type="submit">Add treatment</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

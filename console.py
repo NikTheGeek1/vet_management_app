@@ -58,19 +58,45 @@ vet3 = Vet('Melissa', 'Dudley')
 melissa_obj = VetRep().save(vet3)
 
 evi_pet1_img = read_file('pet-1.txt')
-evi_pet1 = Pet('Dobby', dt.date(2020, 7, 23), False, 'cat', evi_obj.id, melissa_obj.id, evi_pet1_img[0], evi_pet1_img[1])
+evi_pet1 = Pet('Dobby', dt.date(2020, 7, 23), False, 'cat', evi_obj, melissa_obj, evi_pet1_img[0], evi_pet1_img[1])
 PetRep().save(evi_pet1)
 
 evi_pet2_img = read_file('pet-2.txt')
-evi_pet2 = Pet('Pirpi', dt.date(2020, 3, 23), False, 'cat', evi_obj.id, melissa_obj.id, evi_pet2_img[0], evi_pet2_img[1])
+evi_pet2 = Pet('Pirpi', dt.date(2020, 3, 23), False, 'cat', evi_obj, melissa_obj, evi_pet2_img[0], evi_pet2_img[1])
 PetRep().save(evi_pet2)
 
 evi_pet3_img = read_file('pet-3.txt')
-evi_pet3 = Pet('Pirps', dt.date(2020, 2, 3), False, 'cat', evi_obj.id, melissa_obj.id, evi_pet3_img[0], evi_pet3_img[1])
+evi_pet3 = Pet('Pirps', dt.date(2020, 2, 3), False, 'cat', evi_obj, melissa_obj, evi_pet3_img[0], evi_pet3_img[1])
 PetRep().save(evi_pet3)
 
 
 feedback1 = Feedback(4, 3, 4, 3, 'Not really', 'Great job', marios_obj)
 FeedbackRep().save(feedback1)
+
+# TREATMENTS 
+anthelmintics = Treatment('Anthelmintics', 'These are used to eliminate parasitic worms, which infest their systems and steal important nutrients.')
+TreatmentRep().save(anthelmintics)
+
+dermatological = Treatment('Dermatological drugs', 'Oral, topical, or injected medications might be used to treat common skin and ear conditions in animals.')
+TreatmentRep().save(dermatological)
+
+cnsmed = Treatment('Central nervous system medications', 'Drugs like aminocaproic acid or potassium bromide might be prescribed to help animals suffering from seizures or epilepsy.')
+TreatmentRep().save(cnsmed)
+
+resp_drugs = Treatment('Respiratory drugs', 'A variety of medications can be used to help animals suffering from respiratory issues. For example, a veterinarian might prescribe inhaled or oral steroids to assist animals suffering from asthma or other disorders that cause wheezing.')
+TreatmentRep().save(resp_drugs)
+
+antibiotics = Treatment('Antibiotics', 'These medications help animals\' systems fight infection and disease. They can be used once an illness is diagnosed, or a veterinarian might prescribe them preventively before a surgical procedure.')
+TreatmentRep().save(antibiotics)
+
+kid_meds = Treatment('Kidney medications', 'Many animals are prone to kidney issues and these treatments can help slow or stop the progress of these disorders.')
+TreatmentRep().save(kid_meds)
+
+ophth_drugs = Treatment('Ophthalmological drugs', 'Oral medications or eye drops can be used to treat infection and other ocular issues, such as cataracts and glaucoma.')
+TreatmentRep().save(ophth_drugs)
+
+bmt = Treatment('Behavioral modification treatments', 'f your animal appears neurotic, obsessive, or overly aggressive and other treatments have not been successful, your veterinarian may prescribe behavioral modifiers like antidepressants or antipsychotics.')
+TreatmentRep().save(bmt)
+
 
 pdb.set_trace()

@@ -1,0 +1,69 @@
+{% extends "pets/dashboard/base.html" %}
+
+{% block pets_dashboard %}
+{% if visits|length %}
+<div class="pet-visits-list">
+    {% for visit in visits %}
+    <div class="visits-pet-box">
+        <div>
+            <h3 class="heading-tertiary">{{visit.check_in}} : {{visit.check_out}}</h3>
+            <hr>
+            <div class="visit-description-div">
+                <p class="paragraph pet-visits-details" style="text-decoration: underline;">Description</p>
+                <p class="paragraph pet-visits-details">{{visit.description}} </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+        <div class="new-check-in-form" style="text-align: center;">
+            <h2 class="heading-secondary">check {{pet.name}} in!</h2>
+    
+            <form class="form visits-form" method="POST" action="/pets/{{pet.id}}/check-in">
+                <div class="form-group">
+                    <label class="form-label" for="check_in">Check in</label>
+                    <input required class="form-input" type="date" name="check_in" id="check_in">
+                </div>
+    
+                <div class="form-group">
+                    <label class="form-label" for="check_out">Check out</label>
+                    <input required class="form-input" type="date" name="check_out" id="check_out">
+                </div>
+                <div class="form-group">
+                    <textarea required class="form-input" placeholder="Description" type="text" name="description"
+                        id="description"></textarea>
+                    <label class="form-label" for="description">Description</label>
+                </div>
+                <div class="form-group margin-top-large">
+                    <button class="btn btn-green" type="submit">Check in</button>
+                </div>
+            </form>
+        </div>
+</div>
+{% else %}
+<div class="no-visits-div">
+    <div style="text-align: center;">
+        <h2 class="heading-secondary">{{pet.name}} has no visits -- check it in!</h2>
+
+        <form class="form visits-form" method="POST" action="/pets/{{pet.id}}/check-in">
+            <div class="form-group">
+                <label class="form-label" for="check_in">Check in</label>
+                <input class="form-input" type="date" name="check_in" id="check_in">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="check_out">Check out</label>
+                <input class="form-input" type="date" name="check_out" id="check_out">
+            </div>
+            <div class="form-group">
+                <textarea class="form-input" placeholder="Description" type="text" name="description"
+                    id="description"></textarea>
+                <label class="form-label" for="description">Description</label>
+            </div>
+            <div class="form-group margin-top-large">
+                <button class="btn btn-green" type="submit">Check in</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

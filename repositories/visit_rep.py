@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 from models.visit import Visit
 
-
 class VisitRep:
     def __init__(self):
         self.table = "visits"
@@ -55,3 +54,5 @@ class VisitRep:
         values = [id]
         run_sql(sql, values)
 
+
+    

@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.vet import Vet
 from models.pet import Pet
+from repositories.owner_rep import OwnerRep
 
 class VetRep:
     def __init__(self):
@@ -61,17 +62,20 @@ class VetRep:
         results = run_sql(sql, values)
 
         for row in results:
+            owner = OwnerRep().select(row['owner_id'])
+            vet = self.select(row['vet_id'])
             pet = Pet(
                 row['pet_name'], 
                 row['dob'], 
                 row['yo'], 
                 row['animal_type'], 
-                row['owner_id'], 
-                row['vet_id'], 
+                owner, 
+                vet, 
                 row['img'],
                 row['img_type'], 
                 row['id']
             )
+            pet.update_age()
             pets.append(pet)
         return pets
 

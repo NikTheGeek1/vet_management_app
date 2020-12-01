@@ -11,7 +11,7 @@ vets_details_blueprint = Blueprint('vets_details', __name__)
 @vets_details_blueprint.route('/vets/<id>/edit')
 def edit_vet(id):
     vet = VetRep().select(id)
-    return render_template('/vets/dashboard/details.html', title = 'Edit Vet', selected_page = "update_owner", vet = vet, selected_dash_item = 'details')
+    return render_template('/vets/dashboard/details.html', title = 'Edit Vet', selected_page = "update_vet", vet = vet, selected_dash_item = 'details')
 
 @vets_details_blueprint.route('/vets/<id>/edit', methods = ['POST'])
 def edit_vet_POST(id):

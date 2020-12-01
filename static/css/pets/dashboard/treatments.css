@@ -1,4 +1,4 @@
-.no-visits-div {
+.no-treatments-div {
     grid-area: pet-main;
     background-color: #f7f7f7;
     display: grid;
@@ -6,15 +6,25 @@
     align-items: center;
 }
 
-.no-visits-div > div > h2 > a{
+.no-treatments-div > div > h2 > a{
     color: #55c57a;
 }
 
-.pet-visits-details {
+.pet-treatments-details {
     margin-bottom: 0 !important;
 }
 
-.pet-visits-list {
+.select-treatment {
+    width: 50%;
+}
+
+.select-treatment-div {
+    width: 50%;
+    text-align: left !important;
+}
+
+
+.pet-treatments-list {
     display: grid;
     grid-area: pet-main;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -26,7 +36,7 @@
     width: 50%;
     justify-self: center;
 }
-.visits-pet-box{
+.treatments-pet-box{
     padding-left: 2rem;
     padding-right: 2rem;
     margin-top: 4rem;

@@ -1,12 +1,12 @@
 import datetime as dt
 class Pet:
-    def __init__(self, name, dob, yo, type, owner_id, vet_id, image64, image_type, id = None):
+    def __init__(self, name, dob, yo, type, owner, vet, image64, image_type, id = None):
         self.name = name
         self.dob = dob
         self.yo = yo
         self.type = type
-        self.owner_id = owner_id
-        self.vet_id = vet_id
+        self.owner = owner
+        self.vet = vet
         self.id = id
         self.image_type = image_type
         if (not image64):

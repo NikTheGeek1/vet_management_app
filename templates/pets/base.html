@@ -10,17 +10,17 @@
                 {% else %}
                 <li class="navigation-item-pet"><a href="/pets">Info</a></li>
                 {% endif %}
-                {% if selected_page == 'add_pet' %}
-                <li class="navigation-item-pet"><a class="pet-selected-page" href="/pets/add">Add pet</a></li>
+                {% if selected_page == 'checked_in_pets' %}
+                <li class="navigation-item-vet"><a class="pet-selected-page" href="/pets/checked-in">Checked in pets</a></li>
                 {% elif selected_page == 'update_pet' %}
-                <li class="navigation-item-pet"><a class="pet-selected-page" href="#">{{pet.first_name}}'s Dashboard</a></li>
+                <li class="navigation-item-vet"><a class="pet-selected-page" href="#">{{pet.name}}'s Dashboard</a></li>
                 {% else %}
-                <li class="navigation-item-pet"><a href="/pets/add">Add pet</a></li>
+                <li class="navigation-item-vet"><a  href="/pets/checked-in">Checked in pets</a></li>
                 {% endif %}
                 {% if selected_page == 'see_pets' %}
-                <li class="navigation-item-pet"><a class="pet-selected-page" href="/pets/all">See pets</a></li>
+                <li class="navigation-item-pet"><a class="pet-selected-page" href="/pets/all">See all pets</a></li>
                 {% else %}
-                <li class="navigation-item-pet"><a href="/pets/all">See pets</a></li>
+                <li class="navigation-item-pet"><a href="/pets/all">See all pets</a></li>
                 {% endif %}
             </ul>
         </nav>

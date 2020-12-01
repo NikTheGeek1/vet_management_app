@@ -21,7 +21,7 @@ def edit_pets(id):
     all_pets = []
     for unique_id in unique_pet_ids:
         all_pets.append(PetRep().select(unique_id))
-    print(all_pets)
+
     vet = VetRep().select(id)
     return render_template('/vets/dashboard/see-pets.html',all_pets = all_pets, pets = pets, title = 'Vet', vet=vet, selected_page = 'update_vet', selected_dash_item = 'pets')
 
@@ -30,6 +30,6 @@ def edit_pets(id):
 def select_pet(id):
     pet_id = request.form.get('pet')
     pet = PetRep().select(pet_id)
-    pet.vet_id = id
+    pet.vet.id = id
     PetRep().update(pet)
     return redirect('/vets/'+id+'/pets')

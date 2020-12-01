@@ -1,6 +1,8 @@
 from db.run_sql import run_sql
 from models.treatment import Treatment
 from models.pet import Pet
+from repositories.pet_rep import PetRep
+
 from models.pet_treatment import PetTreatment
 
 class PetTreatmentsRep:
@@ -9,7 +11,7 @@ class PetTreatmentsRep:
 
     def save(self, pet_treatment):
         sql = f"INSERT INTO {self.table} " + "(pet_id, treatment_id) VALUES (%s, %s) RETURNING id"
-        values = [pet_treatment.pet_id, pet_treatment.treatment_id]
+        values = [pet_treatment.pet.id, pet_treatment.treatment.id]
         results = run_sql(sql, values)
         pet_treatment.id = results[0]['id']
         return pet_treatment
@@ -20,6 +22,7 @@ class PetTreatmentsRep:
         results = run_sql(sql)
 
         for row in results:
+            pet = pet
             pet_treatment = PetTreatment(
                 row["pet_id"],
                 row["treatment_id"],

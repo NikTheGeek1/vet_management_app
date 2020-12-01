@@ -46,7 +46,8 @@ def edit_owner(id):
 def edit_owner_POST(id):
     email = request.form.get('email')
     phone = request.form.get('phone')
-    OwnerRep().update(email, phone, id)
+    registered = request.form.get('register')
+    OwnerRep().update(email, phone, registered, id)
     owner = OwnerRep().select(id)
     return render_template('/owners/dashboard/edit.html', title = 'Edit Owner', selected_page = "update_owner", owner = owner, selected_dash_item = 'details')
 

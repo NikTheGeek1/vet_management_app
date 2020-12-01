@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.owner import Owner
+from models.vet import Vet
 from models.pet import Pet
 from models.feedback import Feedback
 from models.testimonial import Testimonial
@@ -63,9 +64,9 @@ class OwnerRep:
         values = [id]
         run_sql(sql, values)
     
-    def update(self, owner_email, owner_phone, owner_id):
-        sql = f"UPDATE {self.table} " + "SET (email, phone) = (%s, %s) WHERE id = %s"
-        values = [owner_email, owner_phone, owner_id]
+    def update(self, owner_email, owner_phone, owner_registered, owner_id):
+        sql = f"UPDATE {self.table} " + "SET (email, phone, registered) = (%s, %s, %s) WHERE id = %s"
+        values = [owner_email, owner_phone, owner_registered, owner_id]
         run_sql(sql, values)
 
     def get_pets(self, owner_id):
@@ -75,17 +76,20 @@ class OwnerRep:
         results = run_sql(sql, values)
 
         for row in results:
+            owner = self.select(row['owner_id'])
+            vet = self._select_vet(row['vet_id'])
             pet = Pet(
                 row['pet_name'], 
                 row['dob'], 
                 row['yo'], 
                 row['animal_type'], 
-                row['owner_id'], 
-                row['vet_id'], 
+                owner, 
+                vet, 
                 row['img'], 
                 row['img_type'],
                 row['id']
             )
+            pet.update_age()
             pets.append(pet)
         return pets
 
@@ -122,6 +126,20 @@ class OwnerRep:
 
         return testimonial
 
+    # need to add this here to avoid circular import issue
+    def _select_vet(self, id):
+        vet = None
+        sql = "SELECT * FROM vets WHERE id = %s"
+        values = [id]
+        result = run_sql(sql, values)[0]
+
+        if result is not None:
+            vet = Vet(
+                result["first_name"],
+                result["last_name"],
+                result['id']
+            )
+        return vet
     
 
     
