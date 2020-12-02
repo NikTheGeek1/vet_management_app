@@ -6,9 +6,9 @@
 ##### Setting up the database
 After cloning the repo, one can make the app run by first setting up the database vet_management.
     
-    * createdb
+* createdb
     
-    * psql -d vet_management -f db/vet_management
+* psql -d vet_management -f db/vet_management
 
 That should set up an empty database with the name vet_management.
 ##### Adding data to the database
