@@ -18,6 +18,7 @@ After cloning the repo, one can make the app run by first setting up the databas
 That should set up an empty database with the name ```vet_management```.
 ##### 2) Adding data to the database
 * ```python3 console.py```
+
 The dummy data that will be added are:
 * owners
 * onwer's feedbacks
@@ -50,6 +51,9 @@ This app can:
 * register/track/edit pet's visits
     * check in/outs
     * visit notes
+* register/track/edit pet's treatments
+    * treatment
+    * notes
 * register/track owner's feedbacks
 * register/track/change owner's testimonials
 ##### Relationships between data
@@ -77,7 +81,7 @@ You can find a relationships and other diagrams used [here](https://github.com/N
 ##### Other
 * pets can be added to an owner only if the owner is registered
 * if the DoB of a pet is not know, the user can enter years of age
-* the years of age are updated each time an animal is feched from the database 
+* the years of age are updated each time an animal is fetched from the database 
 * the user can have access to all pets that have ever passed from the clinic, but also only the ones that are currently checked in
 * all data can be changed/deleted besides owner's feedback history and visit history
 * the user can upload/change profile images of owner's pets
