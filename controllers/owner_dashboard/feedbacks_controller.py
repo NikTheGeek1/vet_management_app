@@ -11,7 +11,6 @@ owners_feedbacks_blueprint = Blueprint('owners_feedbacks', __name__)
 def feedbacks_GET(id):
     owner = OwnerRep().select(id)
     feedbacks = OwnerRep().get_feedbacks(id)
-    print(feedbacks)
     return render_template('/owners/dashboard/feedbacks.html', feedbacks = feedbacks, title = 'Owner', selected_page = 'update_owner', owner = owner, selected_dash_item = 'feedbacks')
 
 @owners_feedbacks_blueprint.route('/owners/<id>/add-feedback', methods=['POST'])

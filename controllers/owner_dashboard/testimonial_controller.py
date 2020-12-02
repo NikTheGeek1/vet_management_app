@@ -11,7 +11,6 @@ owners_testimonial_blueprint = Blueprint('owners_testimonial', __name__)
 def testimonial_GET(id):
     owner = OwnerRep().select(id)
     testimonial = OwnerRep().get_testimonial(id)
-    print(testimonial)
     return render_template('/owners/dashboard/testimonial.html', testimonial = testimonial, title = 'Owner', selected_page = 'update_owner', owner = owner, selected_dash_item = 'testimonial')
 
 @owners_testimonial_blueprint.route('/owners/<id>/add-testimonial', methods=['POST'])
