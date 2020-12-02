@@ -2,6 +2,7 @@
 * **
 ### Technologies used
 * Python/flask
+    * also used from python: ```datetime``` and ```base64``` modules (the latter for converting images to strings) 
 * HTML
 * CSS
 * PostgreSQL
