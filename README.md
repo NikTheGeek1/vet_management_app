@@ -11,7 +11,7 @@
 ##### 1) Setting up the database
 After cloning the repo, one can make the app run by first setting up the database ```vet_management```.
     
-* ```createdb```
+* ```createdb vet_management```
     
 * ```psql -d vet_management -f db/vet_management```
 
