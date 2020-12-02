@@ -71,7 +71,7 @@ This app can:
 * an onwer can only have **one** testimonial
 * a testimonial can only have **one** owner
 * **
-[You can find a relationships and other diagrams used here](https://github.com/NikTheGeek1/vet_management_app/tree/main/diagrams)
+You can find a relationships and other diagrams used [here](https://github.com/NikTheGeek1/vet_management_app/tree/main/diagrams)
 
 ##### Other
 * pets can be added to an owner only if the owner is registered
