@@ -74,9 +74,9 @@ This app can:
 [You can find a relationships and other diagrams used here](https://github.com/NikTheGeek1/vet_management_app/tree/main/diagrams)
 
 ##### Other
-* Pets can be added to an owner only if the owner is registered
-* If the DoB of a pet is not know, the user can enter years of age
+* pets can be added to an owner only if the owner is registered
+* if the DoB of a pet is not know, the user can enter years of age
 * the user can have access to all pets that have ever passed from the clinic, but also only the ones that are currently checked in
 * all data can be changed/deleted besides owner's feedback history and visit history
 * the user can upload/change profile images of owner's pets
-* An attempt to make the webb app responsive was made. Added a few media queries and worked with rem's instead of px's so to be easier to make it responsive. The app looks decent up until 500x500 dimensions, less than that and divs turn into werewolves.
+* an attempt to make the webb app responsive was made. Added a few media queries and worked with rem's instead of px's so to be easier to make it responsive. The app looks decent up until 500x500 dimensions, less than that and divs turn into werewolves.
