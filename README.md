@@ -77,6 +77,7 @@ You can find a relationships and other diagrams used [here](https://github.com/N
 ##### Other
 * pets can be added to an owner only if the owner is registered
 * if the DoB of a pet is not know, the user can enter years of age
+* the years of age are updated each time an animal is feched from the database 
 * the user can have access to all pets that have ever passed from the clinic, but also only the ones that are currently checked in
 * all data can be changed/deleted besides owner's feedback history and visit history
 * the user can upload/change profile images of owner's pets
