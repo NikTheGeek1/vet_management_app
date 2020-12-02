@@ -84,5 +84,6 @@ You can find a relationships and other diagrams used [here](https://github.com/N
 * the years of age are updated each time an animal is fetched from the database 
 * the user can have access to all pets that have ever passed from the clinic, but also only the ones that are currently checked in
 * all data can be changed/deleted besides owner's feedback history and visit history
+* when a vet chooses to be responsible for a pet, that pet is removed from the vet who was initially responsible for it
 * the user can upload/change profile images of owner's pets
 * an attempt to make the webb app responsive was made. Added a few media queries and worked with rem's instead of px's so to be easier to make it responsive. The app looks decent up until 500x500 dimensions, less than that and divs turn into werewolves.
